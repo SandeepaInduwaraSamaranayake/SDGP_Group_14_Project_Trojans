@@ -57,7 +57,12 @@ Pets play a significant role in a person's life. Pets can be an important and va
 
 #### Libraries and machine learning frameworks
 
-> 1. 
+> 1. TensorFlow - Framework to train deep learning models.
+> 2. OpenCV - These libraries can help to resize, normalise, and augment the images in the dataset.
+> 3. Matplotlib - Visualise and analyse the results of the deep learning model.
+> 4. NumPy - Numerical Computing.
+> 5. Scikit-learn - For machine learning tasks
+
 
 
 
