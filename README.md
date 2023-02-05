@@ -46,7 +46,19 @@ Pets play a significant role in a person's life. Pets can be an important and va
 
 > 1. Flutter - UI toolkit for crafting beautiful, natively compiled applications for mobile, web, and desktop from a single codebase
 > 2. NodeJS - For the backend runtime environment, based on Chrome's V8 JavaScript engine.
-> 3. 
+> 3. Parse server - Parse Server is an open-source development toolkit to build backends. The Parse Server self-hosted by the users can be the best platform to develop mobile applications and APIs.
+
+#### API's
+
+> 1. Facebook API - To sign in with a Facebook account, read and write social media posts, and manage social media.
+> 2. Twitter API - For sign in with Twitter account
+> 3. Google Accounts Authentication API - For sign in with Google account
+> 4. REST API - The REST API lets you interact with Parse Server from anything that can send an HTTP request.
+
+#### Libraries and machine learning frameworks
+
+> 1. 
+
 
 
 
