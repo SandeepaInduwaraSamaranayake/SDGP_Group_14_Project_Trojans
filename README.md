@@ -1,1 +1,4 @@
-# SDGP_Group_14_Project_Trojans
+# “BarkMeow”
+## A Pet Care application specifically created for Sri Lankan pet owners
+
+
