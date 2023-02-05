@@ -36,7 +36,7 @@ Pets play a significant role in a person's life. Pets can be an important and va
 
 #### IDEs and other Software <br>
 
-> 1. Jupyter Notebook ( If you already installed Anaconda, you don't need to install Jupyter Notebook seperately ) - 
+> 1. Jupyter Notebook ( If you already installed Anaconda, you don't need to install Jupyter Notebook seperately ) - For machine learning purposes
 > 2. Android Studio - For Android app development.
 > 3. Visual Studio Code - For editing code.
 > 4. Pycharm - For programming with Python 
