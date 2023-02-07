@@ -1,0 +1,35 @@
+appId       --->  APPLICATION_ID
+clientKey   --->  CLIENT_KEY
+masterKey   --->  MASTER_KEY
+
+databaseURI mongodb://localhost/BarkMeowDB
+
+# how to access local server
+ 
+# Open cmd as administrator
+
+# this will start the mongoDB service
+
+> mongodb-runner start       
+
+# this will create a parse server 
+# replace appId and other keys according to the account if you creating an online server. If local one use as your preference
+
+# will come 2 warnings 
+# warn: DeprecationWarning: The Parse Server option 'allowClientClassCreation' default will change to 'false' in a future version.
+# warn: DeprecationWarning: The Parse Server option 'allowExpiredAuthDataToken' default will change to 'false' in a future version.
+
+> parse-server --appId APPLICATION_ID --clientKey CLIENT_KEY --masterKey MASTER_KEY --databaseURI mongodb://127.0.0.1/test
+
+# setting up and testing cloud code
+# use cmd command > E: to change the drive in cmd
+
+> parse-server --appId APPLICATION_ID --clientKey CLIENT_KEY --masterKey MASTER_KEY --databaseURI mongodb://127.0.0.1/test --cloud ./cloud/main.js --verbose
+
+# now parse server is in http://localhost:1337/parse
+
+# if you want to run parse server dashboard
+
+> parse-dashboard --dev --appId APPLICATION_ID --masterKey MASTER_KEY --serverURL http://127.0.0.1:1337/parse --appName BarkMeow
+
+# The dashboard is now available at http://127.0.0.1:4040/ OR http://localhost:4040/apps OR http://0.0.0.0:4040/
