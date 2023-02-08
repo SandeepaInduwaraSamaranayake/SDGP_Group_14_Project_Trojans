@@ -1,0 +1,5 @@
+{
+    "keyApplicationId": "APPLICATION_ID",
+    "keyClientKey": "CLIENT_KEY",
+    "keyParseServerUrl": "http://192.168.8.117:1337/parse"
+}

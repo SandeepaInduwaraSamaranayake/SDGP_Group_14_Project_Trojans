@@ -32,4 +32,8 @@ databaseURI mongodb://localhost/BarkMeowDB
 
 > parse-dashboard --dev --appId APPLICATION_ID --masterKey MASTER_KEY --serverURL http://127.0.0.1:1337/parse --appName BarkMeow
 
+# if you want to run parse server dashboard using json configuration file( same thing happen compared to above command)
+
+> parse-dashboard --config parse-dashboard-config.json
+
 # The dashboard is now available at http://127.0.0.1:4040/ OR http://localhost:4040/apps OR http://0.0.0.0:4040/

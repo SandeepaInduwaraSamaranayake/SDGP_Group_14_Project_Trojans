@@ -1,46 +1,56 @@
+import 'package:barkmeow/AppConfiguration/ServerStatus.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:barkmeow/AppConfiguration/AppConfig.dart';
 
 void main() async {
-  /*WidgetsFlutterBinding.ensureInitialized();
-  final keyApplicationId1 = '8vd7WniD41x4yLqHKP9sd0aBl3WVCtS7Tk2y8B2X';
-  final keyClientKey1 = 'L0bGd3Z42BajqPwiBxYiEjlq60P3jGgXRd653QJb';
-  final keyParseServerUrl1 = 'https://parseapi.back4app.com';
+  // declaring and initialising running mode. can be 'local' or 'remote'.
+  // **** If you are using local  backend server use 'local'  ****
+  // **** If you are using remote backend server use 'remote' ****
+  // update local.json or remote.json files according to your server configuration.
+  String runningMode = 'local';
 
-  await Parse().initialize(keyApplicationId1, keyParseServerUrl1,
-      clientKey: keyClientKey1, autoSendSessionId: true);
-
-  var firstObject1 = ParseObject('FirstClass')
-    ..set(
-        'message', 'Hey ! First message from Flutter. Parse is now connected');
-  await firstObject1.save();
-
-  print('done');*/
-
+  // Bind method of a Flutter app to initialize the binding of the Flutter
+  // framework before running the app.This function makes sure that various
+  // important resources required by Flutter, such as the rendering engine and
+  // the framework's event loop, are set up properly and are ready to be used.
   WidgetsFlutterBinding.ensureInitialized();
-  final keyApplicationId = 'APPLICATION_ID';
-  final keyClientKey = 'CLIENT_KEY';
-  final keyParseServerUrl = 'http://localhost:1337/parse';
 
-  await Parse().initialize(keyApplicationId, keyParseServerUrl,
-      clientKey: keyClientKey, autoSendSessionId: true);
+  // load our configuration at the beginning of the app.
+  AppConfig config = await loadConfig(runningMode);
 
-  var firstObject = ParseObject('FirstClass')
-    ..set(
-        'message', 'Hey ! First message from Flutter. Parse is now connected');
-  await firstObject.save();
+  // This method call isServerUp() will notify whether server is running or down.
+  // If the server is down double check the local.json and remote.json, for
+  // configuration issues. local.json keyParseServerUrl should be using your
+  // local nodejs server's ip address( normally like 192.168.8.117 (local ip4 address)).
+  // NOT localhost ip address(127.0.0.1).
+  bool serverIsUp = await ServerStatus.isServerUp(config);
+  if (serverIsUp) {
+    print('Server is up and running!');
+  } else {
+    print('Server is down!');
+  }
 
-  print('Done');
+  // Send object to the server to test server is responding.
+  await ServerStatus.sendSampleObjectToServer(config);
 
-  runApp(const MyApp());
+  // finally launch application.
+  runApp(MyApp(config: config));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // declare config variable.
+  final AppConfig config;
+  const MyApp({required this.config, super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // printing keys
+    print(config.keyApplicationId);
+    print(config.keyClientKey);
+    print(config.keyParseServerUrl);
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
