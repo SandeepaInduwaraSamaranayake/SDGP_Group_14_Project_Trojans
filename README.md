@@ -1,5 +1,7 @@
 # **“BarkMeow”**
-## *A Pet Care application specifically created for Sri Lankan pet owners*
+## *A Pet Care application specifically created for Sri Lankan pet owners*<br>
+![barkmeow](https://user-images.githubusercontent.com/95087710/218262011-93adbdf9-1bbb-4573-a4bb-18da11f7a3bf.png)
+
 
 ### @copyright SE-14 Team Trojans - Software Development Group Project- Informatics Institute of Technology affiliated with the University of Westminster, UK.
 
