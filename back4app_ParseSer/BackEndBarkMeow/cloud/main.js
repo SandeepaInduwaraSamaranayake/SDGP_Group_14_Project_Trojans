@@ -1,11 +1,2 @@
-
-// Use Parse.Cloud.define to define as many cloud functions as you want.
-// For example:
-
-// use testServerConnectionCurl.txt
-// set vs code 'Change language mode' to 'HTTP' 
-// by accessing command palette (ctrl + shift + p)
-
-Parse.Cloud.define("hello", (request) => {
-	return "Hello RalphyBoy!";
-  });
+// It is best practise to organize your cloud functions group into their own file. You can then import them in your main.js.
+require('./functions.js');

@@ -1,4 +1,0 @@
-curl -X POST \
--H "X-Parse-Application-Id: APPLICATION_ID" \
--H "X-Parse-client-key: CLIENT_KEY" \
-http://localhost:1337/parse/functions/hello

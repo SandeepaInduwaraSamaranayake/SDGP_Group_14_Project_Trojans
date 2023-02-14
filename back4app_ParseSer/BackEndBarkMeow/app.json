@@ -1,0 +1,27 @@
+{
+  "name": "BARKMEOW LOCAL PARSE SERVER",
+  "description": "THIS IS THE LOCAL SERVER TO RUN BARKMEOW APPLICATION",
+  "repository": "https://github.com/SandeepaInduwaraSamaranayake/SDGP_Group_14_Project_Trojans",
+  "logo": "https://user-images.githubusercontent.com/95087710/218262011-93adbdf9-1bbb-4573-a4bb-18da11f7a3bf.png",
+  "keywords": ["node", "express", "parse"],
+  "env": {
+    "PARSE_MOUNT": {
+      "description": "Configure Parse API route.",
+      "value": "/parse"
+    },
+    "APP_ID": {
+      "description": "A unique identifier for your app.",
+      "value": "APPLICATION_ID"
+    },
+    "MASTER_KEY": {
+      "description": "A key that overrides all permissions. Keep this secret.",
+      "value": "MASTER_KEY"
+    },
+    "SERVER_URL": {
+      "description": "URL to connect to your Heroku instance (update with your app's name + PARSE_MOUNT)",
+      "value": "http://127.0.0.1:1337/parse"
+    }
+  },
+  "image": "heroku/nodejs",
+  "addons": ["mongolab"]
+}

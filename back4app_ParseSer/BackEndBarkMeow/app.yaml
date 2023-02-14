@@ -1,0 +1,15 @@
+runtime: nodejs
+env: flex
+
+env_variables:
+  # --REQUIRED--
+  DATABASE_URI: mongodb://127.0.0.1:27017/test
+  APP_ID: APPLICATION_ID
+  MASTER_KEY: MASTER_KEY
+  REST_API_KEY: REST_API_KEY                  
+  SERVER_URL: http://127.0.0.1:1337/parse
+  # --OPTIONAL--
+  # FILE_KEY: <your-file-key>
+  PARSE_MOUNT: /parse                         
+  CLOUD_CODE_MAIN: /cloud/main.js
+  PORT: 1337             
