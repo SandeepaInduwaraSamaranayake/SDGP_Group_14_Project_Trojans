@@ -20,11 +20,13 @@ void main() async {
   AppConfig config = await loadConfig(runningMode);
 
   // This method call isServerUp() will notify whether server is running or down.
-  // If the server is down double check the local.json and remote.json, for
+  // If the server is down double check the local.json and remote.json, fo  r
   // configuration issues. local.json keyParseServerUrl should be using your
   // local nodejs server's ip address( normally like 192.168.8.117 (local ip4 address)).
   // NOT localhost ip address(127.0.0.1).
-  bool serverIsUp = await ServerStatus.isServerUp(config);
+  bool serverIsUp =
+      await ServerStatus.verifyParseServer(Uri.parse(config.keyParseServerUrl));
+  // bool isServerUp = await ServerStatus.verifyParseServer(Uri.parse("http://localhost:1337/parse"));
   if (serverIsUp) {
     print('Server is up and running!');
   } else {

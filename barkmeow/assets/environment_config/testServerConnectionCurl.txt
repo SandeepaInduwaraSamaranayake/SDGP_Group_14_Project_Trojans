@@ -1,0 +1,22 @@
+
+# create a user using curl
+curl -X POST \
+  -H "X-Parse-Application-Id: APPLICATION_ID" \
+  -H "X-Parse-REST-API-Key: REST_API_KEY" \
+  -H "X-Parse-Revocable-Session: 1" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"wertfg","password":"pd_n7!-e8","phone":"415-392-0202"}' \
+  http://localhost:1337/parse/users
+
+
+# create a class using curl
+
+#curl -X POST
+#-H "X-Parse-Application-Id:  APPLICATION_ID"
+#-H "X-Parse-REST-API-Key: REST_API_KEY" \
+#-H "Content-Type: application/json"
+#-d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}'
+#http://localhost:1337/parse/classes/GameScore
+
+
+

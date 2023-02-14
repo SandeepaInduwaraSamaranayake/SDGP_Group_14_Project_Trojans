@@ -24,7 +24,7 @@ databaseURI mongodb://localhost/BarkMeowDB
 # setting up and testing cloud code
 # use cmd command > E: to change the drive in cmd
 
-> parse-server --appId APPLICATION_ID --clientKey CLIENT_KEY --masterKey MASTER_KEY --databaseURI mongodb://127.0.0.1/test --cloud ./cloud/main.js --verbose
+> parse-server --appId APPLICATION_ID --clientKey CLIENT_KEY --masterKey MASTER_KEY --restAPIKey REST_API_KEY --databaseURI mongodb://127.0.0.1/test --cloud ./cloud/main.js --verbose
 
 # now parse server is in http://localhost:1337/parse
 
