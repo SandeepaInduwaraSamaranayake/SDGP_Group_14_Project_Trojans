@@ -19,14 +19,20 @@ void main() async {
   // load our configuration at the beginning of the app.
   AppConfig config = await loadConfig(runningMode);
 
-  // This method call isServerUp() will notify whether server is running or down.
-  // If the server is down double check the local.json and remote.json, fo  r
+  // create connection to parse server
+  await Parse().initialize(config.keyApplicationId, config.keyParseServerUrl,
+      clientKey: config.keyClientKey, autoSendSessionId: true);
+
+  // This verifyParseServer() method will check whether server is running or down.
+  // If the server is down please double check the local.json and remote.json, for
   // configuration issues. local.json keyParseServerUrl should be using your
   // local nodejs server's ip address( normally like 192.168.8.117 (local ip4 address)).
   // NOT localhost ip address(127.0.0.1).
+  // remote.json file will use your remote parse server.
   bool serverIsUp =
       await ServerStatus.verifyParseServer(Uri.parse(config.keyParseServerUrl));
-  // bool isServerUp = await ServerStatus.verifyParseServer(Uri.parse("http://localhost:1337/parse"));
+
+  // print the status of the server according to the serverIsUp boolean value.
   if (serverIsUp) {
     print('Server is up and running!');
   } else {
@@ -34,7 +40,7 @@ void main() async {
   }
 
   // Send object to the server to test server is responding.
-  await ServerStatus.sendSampleObjectToServer(config);
+  await ServerStatus.sendSampleObjectToServer();
 
   // finally launch application.
   runApp(MyApp(config: config));
@@ -49,9 +55,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // printing keys
-    print(config.keyApplicationId);
-    print(config.keyClientKey);
-    print(config.keyParseServerUrl);
+    //print(config.keyApplicationId);
+    //print(config.keyClientKey);
+    //print(config.keyParseServerUrl);
 
     return MaterialApp(
       title: 'Flutter Demo',
