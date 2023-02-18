@@ -51,7 +51,7 @@ if (!test)
 //different mount path, you should replace /parse with the correct path.
 
 // We can create end-points for our parse server like /test, /health etc. as follows:
-// When you access the /health endpoint locally, you should see a JSON response with 
+// When you access the /health endpoint locally, you should see a JSON response with
 // information about the server's status
 
 // Parse Server plays nicely with the rest of your web routes

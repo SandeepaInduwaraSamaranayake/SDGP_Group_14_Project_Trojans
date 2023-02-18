@@ -1,7 +1,7 @@
-import 'package:barkmeow/AppConfiguration/ServerStatus.dart';
+import 'package:BarkMeow/AppConfiguration/ServerStatus.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:barkmeow/AppConfiguration/AppConfig.dart';
+import 'package:BarkMeow/AppConfiguration/AppConfig.dart';
 
 void main() async {
   // declaring and initialising running mode. can be 'local' or 'remote'.
@@ -26,8 +26,7 @@ void main() async {
   // This verifyParseServer() method will check whether server is running or down.
   // If the server is down please double check the local.json and remote.json, for
   // configuration issues. local.json keyParseServerUrl should be using your
-  // local nodejs server's ip address( normally like 192.168.8.117 (local ip4 address)).
-  // NOT localhost ip address(127.0.0.1).
+  // local nodejs server's ip address.
   // remote.json file will use your remote parse server.
   bool serverIsUp =
       await ServerStatus.verifyParseServer(Uri.parse(config.keyParseServerUrl));
@@ -60,7 +59,8 @@ class MyApp extends StatelessWidget {
     //print(config.keyParseServerUrl);
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BarkMeow',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'BarkMeow Home Page'),
     );
   }
 }

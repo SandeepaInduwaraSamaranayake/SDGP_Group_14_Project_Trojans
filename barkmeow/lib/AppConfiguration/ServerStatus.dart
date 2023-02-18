@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:barkmeow/AppConfiguration/AppConfig.dart';
+import 'package:BarkMeow/AppConfiguration/AppConfig.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:http/http.dart' as http;
 
