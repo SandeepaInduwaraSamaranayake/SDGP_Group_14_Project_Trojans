@@ -15,7 +15,7 @@ void main() async {
   // Bind method of a Flutter app to initialize the binding of the Flutter
   // framework before running the app.This function makes sure that various
   // important resources required by Flutter, such as the rendering engine and
-  // the framework's event loop, are set up properly and are ready to be used.
+  // the framework's event loop, are set up properly and are ready to be used.1
   WidgetsFlutterBinding.ensureInitialized();
 
   // To show status bar and bottem navigation bar
