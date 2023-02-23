@@ -13,7 +13,7 @@ class AppConfig {
     required this.keyParseServerUrl,
   });
 
-// convert our JSON into an instance of our AppConfig class
+// convert our JSON into an instance of our AppConfig class1
   factory AppConfig.fromJson(Map<String, dynamic> json) {
     return AppConfig(
       keyApplicationId: json['keyApplicationId'],
