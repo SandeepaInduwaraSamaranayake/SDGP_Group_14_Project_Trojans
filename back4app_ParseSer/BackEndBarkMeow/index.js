@@ -43,10 +43,21 @@ if (!test)
   app.use(mountPath, api);
 }
 
+// The Parse class expects the Parse Server URL to be in the following format:
+// https://your-parse-server-url.com/parse      e.g. http://127.0.0.1:1337/parse
+
+// Where your-parse-server-url.com( e.g. http://127.0.0.1:1337 ) is the URL of your
+// Parse Server, and /parse is the mount path for your Parse API. If you have a
+//different mount path, you should replace /parse with the correct path.
+
+// We can create end-points for our parse server like /test, /health etc. as follows:
+// When you access the /health endpoint locally, you should see a JSON response with
+// information about the server's status
+
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res)
 {
-  res.status(200).send('Parse server health test is running.');
+  res.status(200).send('Parse server is running.');
 });
 
 // There will be a test page available on the /test path of your server url
@@ -54,6 +65,14 @@ app.get('/', function (req, res)
 app.get('/test', function (req, res)
 {
   res.sendFile(path.join(__dirname, '/public/test.html'));
+});
+
+// Parse Server provides a status endpoint that you can use to check the server's health.
+// The endpoint is /health, and it returns a JSON object with information about the server's status.
+// There will be a server health check available on the /health path of your server url
+// remove this before launching app.
+app.get('/health', function(req, res) {
+  res.json({ status: 'ok' });
 });
 
 const port = process.env.PORT || 1337;
