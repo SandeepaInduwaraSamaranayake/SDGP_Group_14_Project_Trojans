@@ -1,10 +1,10 @@
-import 'package:BarkMeow/Onboarding_screens/model/onboard_data.dart';
-import 'package:BarkMeow/Onboarding_screens/size_configs.dart';
-import 'package:BarkMeow/main.dart';
+import 'package:barkmeow/Onboarding_screens/model/onboard_data.dart';
+import 'package:barkmeow/Onboarding_screens/size_configs.dart';
+import 'package:barkmeow/main.dart';
 import 'package:flutter/material.dart';
-import 'package:BarkMeow/Onboarding_screens/app_styles.dart';
-import 'package:BarkMeow/Sign_Up_Page/views/pages.dart';
-import 'package:BarkMeow/Onboarding_screens/widgets/widgets.dart';
+import 'package:barkmeow/Onboarding_screens/app_styles.dart';
+import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
+import 'package:barkmeow/Onboarding_screens/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -16,13 +16,13 @@ class OnBoardingPage extends StatefulWidget {
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
   int currentPage = 0;
-  PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 0);
   // create dot indicator
   AnimatedContainer dotIndicator(index) {
     return AnimatedContainer(
       // margin to make dots seperated from each other.
-      margin: EdgeInsets.only(right: 10),
-      duration: Duration(milliseconds: 400),
+      margin: const EdgeInsets.only(right: 10),
+      duration: const Duration(milliseconds: 400),
       height: 12,
       width: 12,
       decoration: BoxDecoration(
@@ -53,17 +53,18 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     // initialize size configuration.
     SizeConfig().init(context);
-    double sizeH = SizeConfig.blockSizeH!;
+    //double sizeH = SizeConfig.blockSizeH!;
     double sizeV = SizeConfig.blockSizeV!;
 
-    // create scafflod.
+    // create scaffold.
     return Scaffold(
       backgroundColor: Colors.white,
+      // create body of the scaffoled with a safe area.
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
-              // divide screen into 10 horizontal parts
+              // divide screen into 10 horizontal parts.
               // and give 9 out of 10 screen size to this expand widget.
               flex: 9,
               child: PageView.builder(
@@ -91,7 +92,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       height: sizeV * 5,
                     ),
                     // Image container which hold the image
-                    Container(
+                    SizedBox(
                       height: sizeV * 50,
                       // Set image to the container
                       child: Image.asset(
@@ -104,10 +105,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     SizedBox(
                       height: sizeV * 5,
                     ),
+                    // The description of the onboard screen.
                     RichText(
                       textAlign: TextAlign.center,
                       text: onboardingContents[index].subtitle,
                     ),
+                    // The empty space between description and footer buttons
+                    // and dot indicators.
                     SizedBox(
                       height: sizeV * 5,
                     ),
@@ -120,14 +124,18 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               flex: 1,
               child: Column(
                 children: [
+                  // here if current page is the last page, show 'Get Started button'
+                  // if it not the last page, show 'Skip', 'Next' and dot indicators.
                   currentPage == onboardingContents.length - 1
+                      // 'Get Started' button.
                       ? MyTextButton(
                           buttonName: 'Get Started',
+                          // 'Get Started' button action.
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SignUpPage(),
+                                builder: (context) => const SignUpPage(),
                               ),
                             );
                           },
@@ -136,25 +144,33 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
+                            // 'Skip' button.
                             OnBoardNavBtn(
                               name: 'Skip',
+                              // 'Skip' button action.
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SignUpPage()));
+                                        builder: (context) =>
+                                            const SignUpPage()));
                               },
                             ),
+                            // Row for dot indicators.
                             Row(
                               children: List.generate(
                                 onboardingContents.length,
                                 (index) => dotIndicator(index),
                               ),
                             ),
+                            // 'Next' button.
                             OnBoardNavBtn(
                                 name: 'Next ',
+                                // 'Next' button action.
                                 onPressed: () {
                                   _pageController.nextPage(
+                                      // simple easeInOut effect when changing
+                                      // one boarding screen to another.
                                       duration:
                                           const Duration(milliseconds: 400),
                                       curve: Curves.easeInOut);

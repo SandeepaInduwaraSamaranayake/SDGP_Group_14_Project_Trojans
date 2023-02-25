@@ -1,10 +1,10 @@
-import 'package:BarkMeow/AppConfiguration/ServerStatus.dart';
-import 'package:BarkMeow/Sign_Up_Page/views/pages.dart';
+import 'package:barkmeow/AppConfiguration/server_status.dart';
+import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:BarkMeow/AppConfiguration/AppConfig.dart';
+import 'package:barkmeow/AppConfiguration/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Onboarding_screens/views/pages.dart';
 
@@ -50,9 +50,9 @@ void main() async {
 
   // print the status of the server according to the serverIsUp boolean value.
   if (serverIsUp) {
-    print('Server is up and running!');
+    //print('Server is up and running!');
   } else {
-    print('Server is down!');
+    //print('Server is down!');
   }
 
   // Send object to the server to test server is responding.

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BarkMeow/Onboarding_screens/app_styles.dart';
+import 'package:barkmeow/Onboarding_screens/app_styles.dart';
 
 class OnBoarding {
   final String title;
@@ -40,15 +40,15 @@ List<OnBoarding> onboardingContents = [
 TextSpan subtitle1 = TextSpan(
   style: kBodyText1,
   children: [
-    TextSpan(text: 'WE CAN'),
+    const TextSpan(text: 'WE CAN'),
     TextSpan(
       text: ' HELP YOU',
       style: TextStyle(
         color: kPrimaryColor,
       ),
     ),
-    TextSpan(text: ' TO BE A BETTER'),
-    TextSpan(text: ' VERSION OF'),
+    const TextSpan(text: ' TO BE A BETTER'),
+    const TextSpan(text: ' VERSION OF'),
     TextSpan(
       text: ' YOURSELF',
       style: TextStyle(
@@ -62,15 +62,15 @@ TextSpan subtitle1 = TextSpan(
 TextSpan subtitle2 = TextSpan(
   style: kBodyText1,
   children: [
-    TextSpan(text: 'WE CAN'),
+    const TextSpan(text: 'WE CAN'),
     TextSpan(
       text: ' HELP YOU',
       style: TextStyle(
         color: kPrimaryColor,
       ),
     ),
-    TextSpan(text: ' TO BE A BETTER'),
-    TextSpan(text: ' VERSION OF'),
+    const TextSpan(text: ' TO BE A BETTER'),
+    const TextSpan(text: ' VERSION OF'),
     TextSpan(
       text: ' YOURSELF',
       style: TextStyle(
@@ -84,15 +84,15 @@ TextSpan subtitle2 = TextSpan(
 TextSpan subtitle3 = TextSpan(
   style: kBodyText1,
   children: [
-    TextSpan(text: 'WE CAN'),
+    const TextSpan(text: 'WE CAN'),
     TextSpan(
       text: ' HELP YOU',
       style: TextStyle(
         color: kPrimaryColor,
       ),
     ),
-    TextSpan(text: ' TO BE A BETTER'),
-    TextSpan(text: ' VERSION OF'),
+    const TextSpan(text: ' TO BE A BETTER'),
+    const TextSpan(text: ' VERSION OF'),
     TextSpan(
       text: ' YOURSELF',
       style: TextStyle(
@@ -106,15 +106,15 @@ TextSpan subtitle3 = TextSpan(
 TextSpan subtitle4 = TextSpan(
   style: kBodyText1,
   children: [
-    TextSpan(text: 'WE CAN'),
+    const TextSpan(text: 'WE CAN'),
     TextSpan(
       text: ' HELP YOU',
       style: TextStyle(
         color: kPrimaryColor,
       ),
     ),
-    TextSpan(text: ' TO BE A BETTER'),
-    TextSpan(text: ' VERSION OF'),
+    const TextSpan(text: ' TO BE A BETTER'),
+    const TextSpan(text: ' VERSION OF'),
     TextSpan(
       text: ' YOURSELF',
       style: TextStyle(

@@ -1,12 +1,10 @@
 import 'dart:io';
-import 'package:BarkMeow/AppConfiguration/AppConfig.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 
-/**
- * This class will check the server status.
- * If the server is running or down. 
- */
+/// This class will check the server status.
+/// If the server is running or down.
 
 class ServerStatus {
   // This method will send http GET request and check whether server is responding
@@ -17,8 +15,7 @@ class ServerStatus {
       //this will alter the initial server url to use the /health endpoint
       //(as an example http://127.0.0.1:1337/parse URI will be altered to
       //http://127.0.0.1:1337/health).
-      var response =
-          await http.get(Uri.parse(serverUri.origin.toString() + '/health'));
+      var response = await http.get(Uri.parse('${serverUri.origin}/health'));
       //this will print the statuscode of the respond of server.
       //print(response.statusCode);
       // if server responce is ok return true, otherwise return false.
@@ -28,7 +25,7 @@ class ServerStatus {
         return false;
       }
     } catch (e) {
-      print(e);
+      //print(e);
       return false;
     }
   }
