@@ -7,16 +7,16 @@
 
 // import 'package:barkmeow/AppConfiguration/app_config.dart';
 // import 'package:flutter/material.dart';
+import 'package:barkmeow/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // import 'package:barkmeow/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    
     // Build our app and trigger a frame.
-
-    // AppConfig config = await loadConfig("local");
-    // await tester.pumpWidget(const MyApp(config: config)));
+    await tester.pumpWidget(const MyApp());
 
     // // Verify that our counter starts at 0.
     // expect(find.text('0'), findsOneWidget);

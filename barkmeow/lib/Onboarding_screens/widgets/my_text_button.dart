@@ -21,7 +21,7 @@ class MyTextButton extends StatelessWidget {
         horizontal: 20,
       ),
       child: SizedBox(
-        height: SizeConfig.blockSizeH! * 15.5,
+        height: SizeConfig.blockSizeV! * 8.7,
         width: SizeConfig.blockSizeH! * 100.0,
         child: TextButton(
           onPressed: onPressed,

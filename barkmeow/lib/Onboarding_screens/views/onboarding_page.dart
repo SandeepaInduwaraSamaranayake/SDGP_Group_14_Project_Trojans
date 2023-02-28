@@ -38,7 +38,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     // getting an instance of SharedPreferences class.
     SharedPreferences pref = await SharedPreferences.getInstance();
     // setting seenOnboard variable to true after showing the onboard screens.
-    seenOnboard = await pref.setBool('seenOnboard', true);
+    //seenOnboard = await pref.setBool('seenOnboard', true);
   }
 
 // This will call the setSeenOnboard() method when running onboard pages for the
@@ -64,9 +64,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         child: Column(
           children: [
             Expanded(
-              // divide screen into 10 horizontal parts.
-              // and give 9 out of 10 screen size to this expand widget.
-              flex: 9,
+              // divide screen into 100 horizontal parts.
+              // and give 90 out of 100 screen size to this expand widget.
+              flex: 90,
               child: PageView.builder(
                 controller: _pageController,
                 onPageChanged: (value) {
@@ -78,8 +78,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 itemBuilder: (context, index) => Column(
                   children: [
                     // The empty space above title at the very top of the screen
-                    SizedBox(
-                      height: sizeV * 5,
+                    Expanded(
+                      child: SizedBox(
+                        height: sizeV * 5,
+                      ),
                     ),
                     // The title of the page
                     Text(
@@ -88,8 +90,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       textAlign: TextAlign.center,
                     ),
                     // The empty space between title and the image container
-                    SizedBox(
-                      height: sizeV * 5,
+                    Expanded(
+                      child: SizedBox(
+                        height: sizeV * 5,
+                      ),
                     ),
                     // Image container which hold the image
                     SizedBox(
@@ -102,80 +106,99 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       ),
                     ),
                     // The empty space between image and the RichText widget
-                    SizedBox(
-                      height: sizeV * 5,
+                    Expanded(
+                      child: SizedBox(
+                        height: sizeV * 5,
+                      ),
                     ),
                     // The description of the onboard screen.
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: onboardingContents[index].subtitle,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: onboardingContents[index].subtitle,
+                      ),
                     ),
                     // The empty space between description and footer buttons
                     // and dot indicators.
-                    SizedBox(
-                      height: sizeV * 5,
+                    Expanded(
+                      child: SizedBox(
+                        height: sizeV * 5,
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
             Expanded(
-              // give 1 out of 10 screen size to this expand widget.
-              flex: 1,
+              // give 10 out of 100 screen size to this expand widget.
+              flex: 10,
               child: Column(
                 children: [
                   // here if current page is the last page, show 'Get Started button'
                   // if it not the last page, show 'Skip', 'Next' and dot indicators.
                   currentPage == onboardingContents.length - 1
-                      // 'Get Started' button.
-                      ? MyTextButton(
-                          buttonName: 'Get Started',
-                          // 'Get Started' button action.
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignUpPage(),
-                              ),
-                            );
-                          },
-                          bgColor: kPrimaryColor,
-                        )
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            // 'Skip' button.
-                            OnBoardNavBtn(
-                              name: 'Skip',
-                              // 'Skip' button action.
-                              onPressed: () {
-                                Navigator.push(
+                      ? Expanded(
+                          // this column will hold the button.
+                          child: Column(
+                            children: [
+                              // 'Get Started' button.
+                              MyTextButton(
+                                buttonName: 'Get Started',
+                                // 'Get Started' button action.
+                                onPressed: () {
+                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SignUpPage()));
-                              },
-                            ),
-                            // Row for dot indicators.
-                            Row(
-                              children: List.generate(
-                                onboardingContents.length,
-                                (index) => dotIndicator(index),
+                                      builder: (context) => const SignUpPage(),
+                                    ),
+                                  );
+                                },
+                                //setting background color of the button
+                                bgColor: kPrimaryColor,
                               ),
-                            ),
-                            // 'Next' button.
-                            OnBoardNavBtn(
-                                name: 'Next ',
-                                // 'Next' button action.
+                            ],
+                          ),
+                        )
+                      : Expanded(
+                          child: Row(
+                            // here we are using space around alignment.
+                            // this will align 3 children left, center and right.
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              // 'Skip' button.
+                              OnBoardNavBtn(
+                                name: 'Skip',
+                                // 'Skip' button action.
                                 onPressed: () {
-                                  _pageController.nextPage(
-                                      // simple easeInOut effect when changing
-                                      // one boarding screen to another.
-                                      duration:
-                                          const Duration(milliseconds: 400),
-                                      curve: Curves.easeInOut);
-                                })
-                          ],
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SignUpPage()));
+                                },
+                              ),
+                              // Row for dot indicators.
+                              Row(
+                                children: List.generate(
+                                  onboardingContents.length,
+                                  (index) => dotIndicator(index),
+                                ),
+                              ),
+                              // 'Next' button.
+                              OnBoardNavBtn(
+                                  name: 'Next',
+                                  // 'Next' button action.
+                                  onPressed: () {
+                                    _pageController.nextPage(
+                                        // simple easeInOut effect when changing
+                                        // one boarding screen to another.
+                                        duration:
+                                            const Duration(milliseconds: 400),
+                                        curve: Curves.easeInOut);
+                                  })
+                            ],
+                          ),
                         ),
                 ],
               ),

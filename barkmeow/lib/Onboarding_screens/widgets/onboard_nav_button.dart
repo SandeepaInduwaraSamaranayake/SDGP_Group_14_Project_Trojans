@@ -19,7 +19,7 @@ class OnBoardNavBtn extends StatelessWidget {
       borderRadius: BorderRadius.circular(6),
       splashColor: Colors.black12,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(7.5),
         child: Text(
           name,
           style: kBodyText1,
