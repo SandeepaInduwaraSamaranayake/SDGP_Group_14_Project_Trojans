@@ -1,10 +1,18 @@
 name: CI
+# when directly pushed to main branch or when a pull request is closed 
+# and merged into the main branch this workflow will triggered.
 on:
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
 
 jobs:
+# Testing flutter environment is configured and working correctly. 
   flutter_test:
     name: Run flutter test and analyze
     runs-on: ubuntu-latest
@@ -20,6 +28,7 @@ jobs:
       - run: cd ./barkmeow && flutter analyze
       - run: cd ./barkmeow && flutter test
 
+# Building iOS codebase with subosito, Flutter environment for use in GitHub actions.
   build_ios:
     name: Build Flutter (iOS)
     needs: [flutter_test]
@@ -36,6 +45,7 @@ jobs:
       - run: cd ./barkmeow && flutter clean
       - run: cd ./barkmeow && flutter build ios --release --no-codesign
 
+# Building Android codebase.
   build_appbundle:
     name: Build Flutter (Android)
     needs: [flutter_test]
