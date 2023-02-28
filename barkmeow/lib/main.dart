@@ -1,15 +1,18 @@
-import 'package:BarkMeow/AppConfiguration/ServerStatus.dart';
-import 'package:BarkMeow/Sign_Up_Page/views/pages.dart';
+import 'package:barkmeow/AppConfiguration/server_status.dart';
+import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:BarkMeow/AppConfiguration/AppConfig.dart';
+import 'package:barkmeow/AppConfiguration/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Onboarding_screens/views/pages.dart';
 
 // To hold boolean value whether the user have seen the onboard screens or not.
 bool? seenOnboard;
+
+// To hold the configuration of the application.
+// ? indicates that config variable is nullable(can be null).
+AppConfig? config;
 
 void main() async {
   // Bind method of a Flutter app to initialize the binding of the Flutter
@@ -34,46 +37,49 @@ void main() async {
   String runningMode = 'local';
 
   // load our configuration at the beginning of the app.
-  AppConfig config = await loadConfig(runningMode);
+  config = await loadConfig(runningMode);
 
   // create connection to parse server
-  await Parse().initialize(config.keyApplicationId, config.keyParseServerUrl,
-      clientKey: config.keyClientKey, autoSendSessionId: true);
+  // ! creates a null check.
+  // ! (Null assertion operator), we are essentially telling the Dart compiler to
+  // "trust" that the value we're referring to will not be null, and to throw an
+  // exception if it is.
+  await Parse().initialize(config!.keyApplicationId, config!.keyParseServerUrl,
+      clientKey: config!.keyClientKey, autoSendSessionId: true);
 
   // This verifyParseServer() method will check whether server is running or down.
   // If the server is down please double check the local.json and remote.json, for
   // configuration issues. local.json keyParseServerUrl should be using your
   // local nodejs server's ip address.
   // remote.json file will use your remote parse server.
-  bool serverIsUp =
-      await ServerStatus.verifyParseServer(Uri.parse(config.keyParseServerUrl));
+  bool serverIsUp = await ServerStatus.verifyParseServer(
+      Uri.parse(config!.keyParseServerUrl));
 
   // print the status of the server according to the serverIsUp boolean value.
+  // *** uncomment if you want ***
   if (serverIsUp) {
-    print('Server is up and running!');
+    //print('Server is up and running!');
   } else {
-    print('Server is down!');
+    //print('Server is down!');
   }
 
   // Send object to the server to test server is responding.
   await ServerStatus.sendSampleObjectToServer();
 
   // finally launch application.
-  runApp(MyApp(config: config));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // declare config variable.
-  final AppConfig config;
-  const MyApp({required this.config, super.key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     // printing keys
-    //print(config.keyApplicationId);
-    //print(config.keyClientKey);
-    //print(config.keyParseServerUrl);
+    // print(config!.keyApplicationId);
+    // print(config!.keyClientKey);
+    // print(config!.keyParseServerUrl);
 
     return MaterialApp(
       title: 'BarkMeow',
@@ -89,10 +95,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.manropeTextTheme(
-          Theme.of(context).textTheme,
-        ),
+        primarySwatch: Colors.amber,
+        fontFamily: "Poppins",
       ),
       home: seenOnboard == true ? const SignUpPage() : const OnBoardingPage(),
     );

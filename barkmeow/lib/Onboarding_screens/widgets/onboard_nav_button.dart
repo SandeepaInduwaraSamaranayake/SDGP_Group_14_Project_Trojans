@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BarkMeow/Onboarding_screens/app_styles.dart';
+import 'package:barkmeow/Onboarding_screens/app_styles.dart';
 
 // Extracting OnBoardNavBtn from default widget flow.
 class OnBoardNavBtn extends StatelessWidget {
@@ -19,7 +19,7 @@ class OnBoardNavBtn extends StatelessWidget {
       borderRadius: BorderRadius.circular(6),
       splashColor: Colors.black12,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(7.5),
         child: Text(
           name,
           style: kBodyText1,
