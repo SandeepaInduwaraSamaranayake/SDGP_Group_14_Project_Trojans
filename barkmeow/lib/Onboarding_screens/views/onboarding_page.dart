@@ -1,5 +1,6 @@
 import 'package:barkmeow/Onboarding_screens/model/onboard_data.dart';
 import 'package:barkmeow/Onboarding_screens/size_configs.dart';
+import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
 import 'package:barkmeow/main.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/Onboarding_screens/app_styles.dart';
@@ -150,7 +151,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const SignUpPage(),
+                                      builder: (context) => const LoginOrSignupPage(),
                                     ),
                                   );
                                 },
@@ -175,7 +176,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const SignUpPage()));
+                                              const LoginOrSignupPage()));
                                 },
                               ),
                               // Row for dot indicators.

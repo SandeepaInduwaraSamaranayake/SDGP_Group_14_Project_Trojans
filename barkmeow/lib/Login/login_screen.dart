@@ -1,6 +1,7 @@
+import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/SignupOrLogin/widgets/customized_textField.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:barkmeow/SignupOrLogin/widgets/customized_button.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -77,16 +78,71 @@ class _LoginScreenState extends State<LoginScreen> {
             },
           ),
 
-          Row(
-            children: [
-              Container(
-                height: 1,
-                width: MediaQuery.of(context).size.height*0.4,
-                color: Colors.grey,
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                Container(
+                  height: 1,
+                  width: MediaQuery.of(context).size.height*0.15,
+                  color: Colors.grey,
+                ),
+                const Text("Or Login with", style: TextStyle(color: Color(0XFF6A707C))),
+                Container(
+                  height: 1,
+                  width: MediaQuery.of(context).size.height*0.15,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          ),
+
+         
+          Center(
+            child: Column(
+              children: [
+                SignInButton(
+                  Buttons.Google,
+                  text: "Login with Google",
+                  onPressed: () {},
+                ),
+                SizedBox(height: 10,),
+                SignInButton(
+                  Buttons.Facebook,
+                  text: "Login with Facebook",
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+           SizedBox(
+            height: 100,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(40,8,8,8.0),
+            child: Align(
+              alignment: Alignment.center,
+              child: Row(
+                children: [
+                  const Text("Don't have an account?",style: TextStyle(
+                    color: Color(0XFF6A707C),
+                    //fontSize: 15
+                  ),),
+                  InkWell(
+                      onTap:(){
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (_)=> const SignUpScreen())
+                        );
+                      }, 
+                  child:Text("Sign Up.",style: TextStyle(
+                    color: Colors.orange,
+                    //fontSize: 15
+                  ),), 
+                  )
+                ],
               ),
-              Text("")
-            ],
-          )
+            ),
+          ),
           ],
           ),
         ),

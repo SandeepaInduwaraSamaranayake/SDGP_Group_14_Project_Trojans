@@ -1,4 +1,5 @@
 import 'package:barkmeow/Login/login_screen.dart';
+import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/SignupOrLogin/widgets/customized_button.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +40,7 @@ class LoginOrSignupPage extends StatelessWidget {
             buttonColor: Colors.orange,
             textColor: Colors.black,
             onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_) => const SignUpScreen()));
               
             },
           )
