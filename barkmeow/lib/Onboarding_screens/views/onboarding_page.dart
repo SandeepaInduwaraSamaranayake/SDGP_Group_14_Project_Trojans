@@ -3,7 +3,7 @@ import 'package:barkmeow/Onboarding_screens/size_configs.dart';
 import 'package:barkmeow/main.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/Onboarding_screens/app_styles.dart';
-import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
+import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/Onboarding_screens/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -12,7 +12,7 @@ class LoginOrSignupPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         decoration: BoxDecoration( 
-          image: DecorationImage(image: AssetImage("assets/images/login_or_signup/loginBackground.png")
+          image: DecorationImage(image: AssetImage("assets/images/common/welcomeBackground.png")
           )
         ),
         child: Column(

@@ -1,7 +1,7 @@
-import 'package:BarkMeow/widgets/customized_textField.dart';
+import 'package:barkmeow/SignupOrLogin/widgets/customized_textField.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/customized_button.dart';
+import 'package:barkmeow/SignupOrLogin/widgets/customized_button.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   
@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
            decoration: BoxDecoration( 
-          image: DecorationImage(image: AssetImage("assets/images/login/loginBackground.png")
+          image: DecorationImage(image: AssetImage("assets/images/login_or_signup/loginBackground.png")
           )
         ),
           child: Column(
@@ -69,12 +69,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
 
             CustomizedButton(
-              buttonText: "Sign up",
+              buttonText: "Login",
               buttonColor: Colors.orange,
               textColor: Colors.black,
               onPressed: (){
               
             },
+          ),
+
+          Row(
+            children: [
+              Container(
+                height: 1,
+                width: MediaQuery.of(context).size.height*0.4,
+                color: Colors.grey,
+              ),
+              Text("")
+            ],
           )
           ],
           ),

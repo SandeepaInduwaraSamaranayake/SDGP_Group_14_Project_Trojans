@@ -62,6 +62,8 @@ flutter:
     - assets/environment_config/
     - assets/images/onboard_images/
     - assets/images/splash_screen/
+    - assets/images/common/
+    - assets/images/login_or_signup/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
