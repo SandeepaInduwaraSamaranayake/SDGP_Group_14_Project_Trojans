@@ -1,0 +1,1025 @@
+Container(
+  // profilepagePTm (45:59)
+  padding:  EdgeInsets.fromLTRB(8*fem, 13*fem, 0*fem, 8*fem),
+  width:  double.infinity,
+  decoration:  BoxDecoration (
+    color:  Color(0xffffffff),
+  ),
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  margin:  EdgeInsets.fromLTRB(8*fem, 0*fem, 19*fem, 29*fem),
+  width:  double.infinity,
+  height:  35*fem,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Center(
+  // h75 (144:3592)
+  child:  
+Container(
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 72*fem, 0*fem),
+  child:  
+Text(
+  '09:41',
+  textAlign:  TextAlign.center,
+  style:  SafeGoogleFont (
+    'Inter',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w600,
+    height:  1*ffem/fem,
+    letterSpacing:  -0.5*fem,
+    color:  Color(0xff000000),
+  ),
+),
+),
+),
+Container(
+  // dynamicislandZuy (149:6801)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 38.7*fem, 0*fem),
+  width:  124*fem,
+  height:  35*fem,
+  decoration:  BoxDecoration (
+    borderRadius:  BorderRadius.circular(17.5*fem),
+    color:  Color(0xff000000),
+  ),
+),
+Container(
+  // rightsidesQs (144:3593)
+  margin:  EdgeInsets.fromLTRB(0*fem, 11*fem, 0*fem, 11*fem),
+  height:  double.infinity,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // maskgroup1GB (144:3594)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 7*fem, 0*fem),
+  width:  43.97*fem,
+  height:  12.5*fem,
+  child:  
+Image.network(
+  [Image url]
+  width:  43.97*fem,
+  height:  12.5*fem,
+),
+),
+Container(
+  // batteryWyd (144:3604)
+  width:  27.33*fem,
+  height:  13*fem,
+  child:  
+Image.network(
+  [Image url]
+  width:  27.33*fem,
+  height:  13*fem,
+),
+),
+  ],
+),
+),
+  ],
+),
+),
+Container(
+  // wrapperFgK (47:3121)
+  margin:  EdgeInsets.fromLTRB(100.5*fem, 0*fem, 100.5*fem, 24*fem),
+  width:  double.infinity,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // avatary6X (47:3122)
+  margin:  EdgeInsets.fromLTRB(43.5*fem, 0*fem, 44.5*fem, 12*fem),
+  width:  double.infinity,
+  height:  96*fem,
+  decoration:  BoxDecoration (
+    borderRadius:  BorderRadius.circular(100*fem),
+    image:  DecorationImage (
+      image:  NetworkImage (
+        [Image url]
+      ),
+    ),
+  ),
+),
+Text(
+  // link3MH (47:3123)
+  'Set new Photo or video',
+  textAlign:  TextAlign.right,
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff0f77f0),
+  ),
+),
+  ],
+),
+),
+Container(
+  // listsandtablesxz3 (47:3124)
+  margin:  EdgeInsets.fromLTRB(8*fem, 0*fem, 15*fem, 24*fem),
+  width:  double.infinity,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.end,
+  children:  [
+Container(
+  // autogroupunhm6KZ (Tc3rvuZgpmwV9DtcMkUnHm)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 1*fem, 7.5*fem),
+  width:  361*fem,
+  height:  88.5*fem,
+  child:  
+Stack(
+  children:  [
+Positioned(
+  // headertitleCtP (I47:3124;31:7193)
+  left:  16*fem,
+  top:  0*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  63*fem,
+  height:  18*fem,
+  child:  
+Text(
+  'Header title',
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+),
+),
+Positioned(
+  // wrapperszX (I47:3124;31:7194)
+  left:  0*fem,
+  top:  0*fem,
+  child:  
+Container(
+  padding:  EdgeInsets.fromLTRB(16*fem, 11*fem, 0*fem, 0*fem),
+  width:  361*fem,
+  height:  88.5*fem,
+  decoration:  BoxDecoration (
+    color:  Color(0xffffffff),
+    borderRadius:  BorderRadius.circular(10*fem),
+  ),
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.end,
+  children:  [
+Container(
+  // celltextfieldynf (I47:3124;31:7195)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 10.5*fem),
+  width:  double.infinity,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.start,
+  children:  [
+Container(
+  // valuevC7 (I47:3124;31:7195;31:7008)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 11*fem),
+  child:  
+Text(
+  'Uditha',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff181818),
+  ),
+),
+),
+Container(
+  // separatorQd5 (I47:3124;31:7195;31:7010)
+  width:  double.infinity,
+  height:  0.5*fem,
+  decoration:  BoxDecoration (
+    color:  Color(0x3d181818),
+  ),
+),
+  ],
+),
+),
+Container(
+  // celltextfieldYDV (I47:3124;31:7196)
+  width:  double.infinity,
+  height:  33.5*fem,
+  child:  
+Text(
+  'Bodhinayake',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff181818),
+  ),
+),
+),
+  ],
+),
+),
+),
+  ],
+),
+),
+Container(
+  // footertitlepgo (I47:3124;31:7198)
+  constraints:  BoxConstraints (
+    maxWidth:  346*fem,
+  ),
+  child:  
+Text(
+  'Enter your name and add an optional profile photo or video',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+  ],
+),
+),
+Container(
+  // autogroupnf3djom (Tc3pZUWgbcq8A2BH7xnF3d)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 20*fem),
+  width:  491*fem,
+  height:  362*fem,
+  child:  
+Stack(
+  children:  [
+Positioned(
+  // listsandtablesfhR (47:3125)
+  left:  8*fem,
+  top:  0*fem,
+  child:  
+Container(
+  width:  483*fem,
+  height:  360*fem,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.start,
+  children:  [
+Container(
+  // autogroupulqmnX9 (Tc3pitQffUMGCfzeSSuLqm)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 297.5*fem),
+  padding:  EdgeInsets.fromLTRB(16*fem, 0*fem, 16*fem, 0*fem),
+  width:  412*fem,
+  height:  44.5*fem,
+  child:  
+Text(
+  'Header title',
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+Container(
+  // footertitle3xs (I47:3125;31:7671)
+  margin:  EdgeInsets.fromLTRB(16*fem, 0*fem, 0*fem, 0*fem),
+  child:  
+Text(
+  'Any details such as age, occupation or city. Example: 23 y.o. designer from San Francisco',
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+  ],
+),
+),
+),
+Positioned(
+  // listsandtablesB3V (47:3126)
+  left:  10*fem,
+  top:  2*fem,
+  child:  
+Container(
+  width:  377*fem,
+  height:  360*fem,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // autogroupwngfGqd (Tc3q1NwBrLARgRAFEBWNGf)
+  width:  double.infinity,
+  height:  88.5*fem,
+  child:  
+Stack(
+  children:  [
+Positioned(
+  // headertitleQgw (I47:3126;23:6866)
+  left:  16*fem,
+  top:  0*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  63*fem,
+  height:  18*fem,
+  child:  
+Text(
+  'Header title',
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+),
+),
+Positioned(
+  // wrapperuNo (I47:3126;23:6867)
+  left:  0*fem,
+  top:  0*fem,
+  child:  
+Container(
+  padding:  EdgeInsets.fromLTRB(16*fem, 8*fem, 0*fem, 0*fem),
+  width:  377*fem,
+  height:  88.5*fem,
+  decoration:  BoxDecoration (
+    color:  Color(0xffffffff),
+    borderRadius:  BorderRadius.circular(10*fem),
+  ),
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.end,
+  children:  [
+Container(
+  // celltEj (I47:3126;23:6868)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 7.5*fem),
+  padding:  EdgeInsets.fromLTRB(0*fem, 3*fem, 0*fem, 0*fem),
+  width:  double.infinity,
+  height:  36.5*fem,
+  child:  
+Container(
+  // wrapperp8P (I47:3126;23:6868;23:6470)
+  width:  double.infinity,
+  height:  double.infinity,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.start,
+  children:  [
+Container(
+  // wrapperNQo (I47:3126;23:6868;22:7075)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 2*fem),
+  width:  double.infinity,
+  height:  31*fem,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // autogroupxa7qW1D (Tc3qKnaBZk8Hof4rFRxa7q)
+  padding:  EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 0*fem),
+  height:  double.infinity,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.start,
+  children:  [
+Container(
+  // titleDgK (I47:3126;23:6868;22:7072)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 55*fem, 0*fem),
+  child:  
+Text(
+  'Change number',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff181818),
+  ),
+),
+),
+Text(
+  // sublabel6k7 (I47:3126;23:6868;24:6892)
+  '+94766060331',
+  textAlign:  TextAlign.right,
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+  ],
+),
+),
+Container(
+  // autogroupr2s1dk3 (Tc3qE3Ekz5gBsAqqYtR2s1)
+  padding:  EdgeInsets.fromLTRB(13*fem, 0*fem, 13*fem, 0*fem),
+  width:  51*fem,
+  height:  double.infinity,
+  child:  
+Text(
+  '􀆊',
+  textAlign:  TextAlign.right,
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w600,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0x3d181818),
+  ),
+),
+),
+  ],
+),
+),
+Container(
+  // separator7v7 (I47:3126;23:6868;22:7073)
+  width:  345*fem,
+  height:  0.5*fem,
+  decoration:  BoxDecoration (
+    color:  Color(0x3d181818),
+  ),
+),
+  ],
+),
+),
+),
+Container(
+  // cellFFd (I47:3126;23:6869)
+  padding:  EdgeInsets.fromLTRB(0*fem, 3*fem, 0*fem, 0*fem),
+  width:  double.infinity,
+  height:  36.5*fem,
+  child:  
+Container(
+  // wrapperb4b (I47:3126;23:6869;23:6470)
+  width:  double.infinity,
+  height:  double.infinity,
+  child:  
+Container(
+  // wrapperky5 (I47:3126;23:6869;22:7075)
+  width:  double.infinity,
+  height:  31*fem,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // autogroupxkaj7Yj (Tc3qh7HzDDd3hM4NaixkAj)
+  padding:  EdgeInsets.fromLTRB(0*fem, 0*fem, 2*fem, 0*fem),
+  height:  double.infinity,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.start,
+  children:  [
+Container(
+  // titlef4T (I47:3126;23:6869;22:7072)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 152*fem, 0*fem),
+  child:  
+Text(
+  'Username',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff181818),
+  ),
+),
+),
+Text(
+  // sublabelz6j (I47:3126;23:6869;24:6892)
+  '@ud1tha',
+  textAlign:  TextAlign.right,
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+  ],
+),
+),
+Container(
+  // autogroup4p2biHd (Tc3qaryPvoUrCPAQLv4p2B)
+  padding:  EdgeInsets.fromLTRB(13*fem, 0*fem, 13*fem, 0*fem),
+  width:  51*fem,
+  height:  double.infinity,
+  child:  
+Text(
+  '􀆊',
+  textAlign:  TextAlign.right,
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w600,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0x3d181818),
+  ),
+),
+),
+  ],
+),
+),
+),
+),
+  ],
+),
+),
+),
+  ],
+),
+),
+Container(
+  // autogroupxspfxhm (Tc3qrSMmzcXW9avuyfXSpF)
+  padding:  EdgeInsets.fromLTRB(16*fem, 181.5*fem, 16*fem, 0*fem),
+  width:  double.infinity,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // horizontalHzw (84:1047)
+  margin:  EdgeInsets.fromLTRB(135*fem, 0*fem, 206*fem, 48*fem),
+  width:  double.infinity,
+  height:  24*fem,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // paddingpV5 (84:1048)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 4*fem, 0*fem),
+  width:  0*fem,
+  height:  double.infinity,
+),
+Container(
+  // paddingmv7 (84:1051)
+  width:  0*fem,
+  height:  double.infinity,
+),
+  ],
+),
+),
+Container(
+  // footertitlekNj (I47:3126;23:6872)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 28*fem, 0*fem),
+  child:  
+Text(
+  'Enter your name and add an optional profile photo or video',
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+  ],
+),
+),
+  ],
+),
+),
+),
+Positioned(
+  // wrappersTM (47:3127)
+  left:  8*fem,
+  top:  108*fem,
+  child:  
+Container(
+  width:  361*fem,
+  height:  70*fem,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // buttonbeF (47:3128)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 8*fem),
+  padding:  EdgeInsets.fromLTRB(10*fem, 8*fem, 10*fem, 8*fem),
+  width:  double.infinity,
+  decoration:  BoxDecoration (
+    color:  Color(0xffffffff),
+    borderRadius:  BorderRadius.circular(12*fem),
+  ),
+  child:  
+ClipRect(
+  child:  
+BackdropFilter(
+  filter:  ImageFilter.blur (
+    sigmaX:  16*fem,
+    sigmaY:  16*fem,
+  ),
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // paddingTgT (I47:3128;9:3452)
+  width:  double.infinity,
+  height:  1*fem,
+),
+Container(
+  // horizontalQLo (I47:3128;9:3453)
+  margin:  EdgeInsets.fromLTRB(115*fem, 0*fem, 115*fem, 0*fem),
+  child:  
+TextButton(
+  onPressed:  () {},
+  style:  TextButton.styleFrom (
+    padding:  EdgeInsets.zero,
+  ),
+  child:  
+Container(
+  padding:  EdgeInsets.fromLTRB(4*fem, 1*fem, 4*fem, 1*fem),
+  width:  double.infinity,
+  height:  24*fem,
+  child:  
+Container(
+  // autogroup2asb4w9 (Tc3rcVvh7Myd1yz1LW2aSb)
+  width:  double.infinity,
+  height:  double.infinity,
+  child:  
+Center(
+  child:  
+Text(
+  'Add new pet',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff0f77f0),
+  ),
+),
+),
+),
+),
+),
+),
+Container(
+  // paddingmaf (I47:3128;9:3458)
+  width:  double.infinity,
+  height:  3*fem,
+),
+  ],
+),
+),
+),
+),
+Container(
+  // footertitlevyM (47:3129)
+  margin:  EdgeInsets.fromLTRB(16*fem, 0*fem, 0*fem, 0*fem),
+  child:  
+Text(
+  'You can add up to any number of pets.',
+  textAlign:  TextAlign.center,
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  13*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.3846153846*ffem/fem,
+    letterSpacing:  -0.0799999982*fem,
+    color:  Color(0xa3181818),
+  ),
+),
+),
+  ],
+),
+),
+),
+Positioned(
+  // buttonePZ (47:3130)
+  left:  0*fem,
+  top:  209*fem,
+  child:  
+Container(
+  padding:  EdgeInsets.fromLTRB(10*fem, 8*fem, 10*fem, 8*fem),
+  width:  361*fem,
+  height:  44*fem,
+  decoration:  BoxDecoration (
+    borderRadius:  BorderRadius.circular(12*fem),
+  ),
+  child:  
+ClipRect(
+  child:  
+BackdropFilter(
+  filter:  ImageFilter.blur (
+    sigmaX:  16*fem,
+    sigmaY:  16*fem,
+  ),
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // padding7Y3 (I47:3130;9:3340)
+  width:  double.infinity,
+  height:  1*fem,
+),
+Container(
+  // horizontalgLF (I47:3130;9:3341)
+  margin:  EdgeInsets.fromLTRB(122.5*fem, 0*fem, 122.5*fem, 0*fem),
+  child:  
+TextButton(
+  onPressed:  () {},
+  style:  TextButton.styleFrom (
+    padding:  EdgeInsets.zero,
+  ),
+  child:  
+Container(
+  width:  double.infinity,
+  height:  24*fem,
+  child:  
+Row(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // paddingzLw (I47:3130;9:3342)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
+  width:  0*fem,
+  height:  double.infinity,
+),
+Center(
+  // iconwGB (I47:3130;9:3612)
+  child:  
+Container(
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 11*fem, 0*fem),
+  child:  
+Text(
+  '􀻵',
+  textAlign:  TextAlign.center,
+  style:  SafeGoogleFont (
+    'SF Pro Text',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w600,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff0f77f0),
+  ),
+),
+),
+),
+Container(
+  // valuezkF (I47:3130;9:3344)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 4*fem, 0*fem),
+  child:  
+Text(
+  'Log out',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  17*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.2941176471*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff0f77f0),
+  ),
+),
+),
+Container(
+  // paddingKXd (I47:3130;9:3345)
+  width:  0*fem,
+  height:  double.infinity,
+),
+  ],
+),
+),
+),
+),
+Container(
+  // paddingHjM (I47:3130;9:3346)
+  width:  double.infinity,
+  height:  3*fem,
+),
+  ],
+),
+),
+),
+),
+),
+Positioned(
+  // valuef5h (84:1050)
+  left:  116*fem,
+  top:  243*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  143*fem,
+  height:  22*fem,
+  child:  
+Text(
+  'Contact us & Help Center',
+  style:  SafeGoogleFont (
+    'Poppins',
+    fontSize:  12*ffem,
+    fontWeight:  FontWeight.w400,
+    height:  1.8333333333*ffem/fem,
+    letterSpacing:  -0.4099999964*fem,
+    color:  Color(0xff0f77f0),
+  ),
+),
+),
+),
+),
+  ],
+),
+),
+Container(
+  // group5Zgs (47:3590)
+  margin:  EdgeInsets.fromLTRB(6*fem, 0*fem, 13*fem, 0*fem),
+  width:  double.infinity,
+  child:  
+Column(
+  crossAxisAlignment:  CrossAxisAlignment.center,
+  children:  [
+Container(
+  // autogroupq1vhWMD (Tc3tWMwJQdT2cXor1Bq1VH)
+  margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 27*fem),
+  width:  double.infinity,
+  height:  43*fem,
+  child:  
+Stack(
+  children:  [
+Positioned(
+  // group6eCX (47:3591)
+  left:  0*fem,
+  top:  0*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  366*fem,
+  height:  43*fem,
+  child:  
+Image.network(
+  [Image url]
+  width:  366*fem,
+  height:  43*fem,
+),
+),
+),
+),
+Positioned(
+  // moreappsicon21AAs (47:3602)
+  left:  91*fem,
+  top:  10*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  25*fem,
+  height:  23*fem,
+  child:  
+TextButton(
+  onPressed:  () {},
+  style:  TextButton.styleFrom (
+    padding:  EdgeInsets.zero,
+  ),
+  child:  
+Image.network(
+  [Image url]
+  fit:  BoxFit.cover,
+),
+),
+),
+),
+),
+Positioned(
+  // addcircleerj (47:3622)
+  left:  168*fem,
+  top:  6*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  30*fem,
+  height:  30*fem,
+  child:  
+TextButton(
+  onPressed:  () {},
+  style:  TextButton.styleFrom (
+    padding:  EdgeInsets.zero,
+  ),
+  child:  
+Image.network(
+  [Image url]
+  width:  30*fem,
+  height:  30*fem,
+),
+),
+),
+),
+),
+Positioned(
+  // notifications6Tq (47:3624)
+  left:  248*fem,
+  top:  9*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  25*fem,
+  height:  26*fem,
+  child:  
+TextButton(
+  onPressed:  () {},
+  style:  TextButton.styleFrom (
+    padding:  EdgeInsets.zero,
+  ),
+  child:  
+Image.network(
+  [Image url]
+  width:  25*fem,
+  height:  26*fem,
+),
+),
+),
+),
+),
+Positioned(
+  // group7adu (47:3609)
+  left:  17*fem,
+  top:  11*fem,
+  child:  
+Align(
+  child:  
+SizedBox(
+  width:  21.77*fem,
+  height:  20.32*fem,
+  child:  
+TextButton(
+  onPressed:  () {},
+  style:  TextButton.styleFrom (
+    padding:  EdgeInsets.zero,
+  ),
+  child:  
+Image.network(
+  [Image url]
+  width:  21.77*fem,
+  height:  20.32*fem,
+),
+),
+),
+),
+),
+  ],
+),
+),
+Container(
+  // lineffM (I47:3588;5:254)
+  margin:  EdgeInsets.fromLTRB(113*fem, 0*fem, 118*fem, 0*fem),
+  width:  double.infinity,
+  height:  5*fem,
+  decoration:  BoxDecoration (
+    borderRadius:  BorderRadius.circular(100*fem),
+    color:  Color(0xff181818),
+  ),
+),
+  ],
+),
+),
+  ],
+),
+),
