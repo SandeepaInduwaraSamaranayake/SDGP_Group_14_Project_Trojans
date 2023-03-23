@@ -1,0 +1,2 @@
+primary color : #f48224
+secondary color : 000000

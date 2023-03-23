@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:barkmeow/Onboarding_screens/app_styles.dart';
-import 'package:barkmeow/Onboarding_screens/size_configs.dart';
+import 'package:barkmeow/app_styles.dart';
+import 'package:barkmeow/size_configs.dart';
 
 // Extracting MyTextButton from default widget flow.
 class MyTextButton extends StatelessWidget {

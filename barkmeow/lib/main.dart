@@ -11,7 +11,8 @@ import 'Notification_Page/views/notification_page.dart';
 import 'Onboarding_screens/views/pages.dart';
 import 'Explore_Page/views/explore_page.dart';
 import 'Profile_Page/views/profile_page.dart';
-
+import 'package:barkmeow/Onboarding_screens/views/pages.dart';
+import 'package:barkmeow/Profile_Page/views/profile_page.dart';
 
 // To hold boolean value whether the user have seen the onboard screens or not.
 bool? seenOnboard;
@@ -104,26 +105,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         fontFamily: "Poppins",
       ),
-
-      home: seenOnboard == true ? const LoginOrSignupPage() : const OnBoardingPage(),
-
-      initialRoute: '/',
-      onGenerateRoute: (RouteSettings settings) {
-        switch (settings.name) {
-          case '/':
-            return MaterialPageRoute(builder: (_) => const HomePage());
-          case '/screen2':
-            return MaterialPageRoute(builder: (_) => const ExplorePage());
-          case '/screen3':
-            return MaterialPageRoute(builder: (_) => const CameraScreen());
-          case '/screen4':
-            return MaterialPageRoute(builder: (_) => const NotificationPage());
-          case '/screen5':
-            return MaterialPageRoute(builder: (_) => const ProfilePage());
-          default:
-            return MaterialPageRoute(builder: (_) => const HomePage());
-        }
-      },
+      home: seenOnboard == true ? const SignUpPage() : const ProfilePage(),
     );
   }
 }
