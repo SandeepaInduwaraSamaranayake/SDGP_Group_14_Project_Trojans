@@ -120,8 +120,6 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(builder: (_) => const NotificationPage());
           case '/screen5':
             return MaterialPageRoute(builder: (_) => const ProfilePage());
-          default:
-            return MaterialPageRoute(builder: (_) => const HomePage());
         }
       },
     );

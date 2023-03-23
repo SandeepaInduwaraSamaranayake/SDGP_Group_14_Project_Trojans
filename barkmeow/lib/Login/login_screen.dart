@@ -3,6 +3,8 @@ import 'package:barkmeow/SignupOrLogin/widgets/customized_textField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:barkmeow/SignupOrLogin/widgets/customized_button.dart';
+
+import '../Home_Page/views/home_page.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   
@@ -14,9 +16,20 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-  
-  
-  
+
+  void login() {
+    // Perform login logic here
+    // ...
+
+    // Navigate to HomePage
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomePage()),
+    );
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
               buttonColor: Colors.orange,
               textColor: Colors.black,
               onPressed: (){
-              
+                Navigator.push(context,MaterialPageRoute(builder: (_) => const HomePage()));
             },
           ),
 
@@ -104,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SignInButton(
                   Buttons.Google,
                   text: "Login with Google",
-                  onPressed: () {},
+                  onPressed: (login) {},
                 ),
                 SizedBox(height: 10,),
                 SignInButton(
