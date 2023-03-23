@@ -1,4 +1,4 @@
-import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
+import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/Social_Feed/views/pages.dart';
 import 'package:barkmeow/Contact_Us/views/pages.dart';
