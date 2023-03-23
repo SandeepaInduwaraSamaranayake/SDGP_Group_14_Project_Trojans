@@ -59,9 +59,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Icon(Icons.accessibility_new_outlined), label: 'Settings'),
         BottomNavigationBarItem(
             icon: Icon(Icons.add_circle), label: 'Settings'),
-        BottomNavigationBarItem(icon: Icon(Icons.add_alert), label: 'Settings'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_sharp), label: 'Settings'),
+            icon: Icon(Icons.add_alert), label: 'Notification'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_sharp), label: 'Profile'),
       ],
       selectedItemColor: navigationBarSelectedColor,
       unselectedItemColor: navigationBarNotSelectedColor,
