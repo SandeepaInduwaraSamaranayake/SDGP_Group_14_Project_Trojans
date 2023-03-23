@@ -1,9 +1,8 @@
 import 'package:barkmeow/Onboarding_screens/model/onboard_data.dart';
+import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
 import 'package:barkmeow/size_configs.dart';
-import 'package:barkmeow/main.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/app_styles.dart';
-import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
 import 'package:barkmeow/Onboarding_screens/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

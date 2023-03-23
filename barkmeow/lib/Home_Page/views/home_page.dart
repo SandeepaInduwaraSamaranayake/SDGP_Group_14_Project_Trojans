@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../Bottom_navigator_bar/views/bottom_navigation_bar.dart';
+import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int currentIndex = 2;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
@@ -13,7 +14,12 @@ class HomePage extends StatelessWidget {
       body: const Center(
         child: Text('Home Page'),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      backgroundColor: Colors.white,
+
+      //Navigator Bar
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: currentIndex,
+      ),
     );
   }
 }

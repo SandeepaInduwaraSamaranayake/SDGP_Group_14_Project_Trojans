@@ -1,9 +1,9 @@
+import 'package:barkmeow/Profile_Page/views/pages.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/Social_Feed/views/pages.dart';
 import 'package:barkmeow/Contact_Us/views/pages.dart';
 import 'package:barkmeow/Help_Center/views/pages.dart';
-import 'package:barkmeow/Profile_Page/views/pages.dart';
 import 'package:barkmeow/app_styles.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -44,7 +44,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                   builder: (context) => const HelpCenterScreen()));
         } else if (index == 3) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SignUpPage()));
+              MaterialPageRoute(builder: (context) => const SignUpScreen()));
         } else if (index == 4) {
           Navigator.push(
               context,

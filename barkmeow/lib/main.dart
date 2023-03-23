@@ -1,16 +1,10 @@
 import 'package:barkmeow/AppConfiguration/server_status.dart';
-import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
+import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:barkmeow/AppConfiguration/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Camera-Screen/views/camera_screen.dart';
-import 'Home_Page/views/home_page.dart';
-import 'Notification_Page/views/notification_page.dart';
-import 'Onboarding_screens/views/pages.dart';
-import 'Explore_Page/views/explore_page.dart';
-import 'Profile_Page/views/profile_page.dart';
 import 'package:barkmeow/Onboarding_screens/views/pages.dart';
 import 'package:barkmeow/Profile_Page/views/profile_page.dart';
 
@@ -105,7 +99,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         fontFamily: "Poppins",
       ),
-      home: seenOnboard == true ? const SignUpPage() : const ProfilePage(),
+      home: seenOnboard == true ? const SignUpScreen() : const ProfilePage(),
     );
   }
 }
