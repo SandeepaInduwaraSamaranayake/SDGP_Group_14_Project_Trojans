@@ -1,3 +1,4 @@
+import 'package:barkmeow/Breed_Identifier/controller.dart';
 import 'package:barkmeow/Profile_Page/views/pages.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const SignUpScreen()));
         } else if (index == 4) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const SocialFeedScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const BreedIdentifier()));
         }
       },
 

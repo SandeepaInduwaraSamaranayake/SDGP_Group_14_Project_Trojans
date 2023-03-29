@@ -1,0 +1,3 @@
+Module: https://tfhub.dev/tensorflow/efficientnet/b0/feature-vector/1
+Download Time: 2023-03-25 19:54:17.709824
+Downloader Hostname: DESKTOP-A96F09A (PID:13432)
