@@ -5,7 +5,8 @@ import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:tflite/tflite.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+
+import 'circular_percentage_indicator.dart';
 
 class BreedIdentifier extends StatefulWidget {
   const BreedIdentifier({super.key});
@@ -15,10 +16,13 @@ class BreedIdentifier extends StatefulWidget {
 }
 
 class _BreedIdentifierState extends State<BreedIdentifier> {
-  late File _image;
-  late List _results;
-  bool imageSelect = false;
-  final ImagePicker _picker = ImagePicker();
+  late File _image; // to hold the image user select.
+  late List _results; // to hold the output of CNN Model.
+  late List _percentages = []; // to hold the percentages only.
+  late List _labels = []; // to hold the labels only
+  bool imageSelect = false; // to hold boolean whether image is selected or not.
+  final ImagePicker _picker =
+      ImagePicker(); // to hold the image picker() object.
 
   @override
   void initState() {
@@ -58,6 +62,8 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
   }
 
   Future imageClassification(File image) async {
+    _labels = [];
+    _percentages = [];
     final List? recognitions = await Tflite.runModelOnImage(
       path: image.path,
       numResults: 6,
@@ -78,6 +84,17 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
 
           recognition['confidence'] = recognition['confidence'] * 100;
         }
+
+        for (final recognition in recognitions) {
+          _labels.add(recognition['label'] +
+              " \n" +
+              recognition['confidence'].toStringAsFixed(2) +
+              "%");
+          _percentages.add(recognition['confidence']);
+        }
+
+        print(_labels.toString());
+        print(_percentages.toString());
       }
     });
   }
@@ -89,11 +106,6 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
     double screenHeight = SizeConfig.screenHeight!;
     double screenWidth = SizeConfig.screenWidth!;
     int currentIndex = 4;
-
-    @override
-    void initState() {
-      loadModel();
-    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -153,6 +165,18 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                   const SizedBox(
                     height: 90,
                   ),
+                  PercentageIndicator(
+                      percentages: _percentages,
+                      colors: const [
+                        Colors.red,
+                        Colors.green,
+                        Colors.blue,
+                        Colors.orange,
+                        Colors.purple,
+                        Colors.brown,
+                      ],
+                      size: 150.0,
+                      labels: _labels),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
