@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:tflite/tflite.dart';
 
 import 'circular_percentage_indicator.dart';
@@ -20,6 +19,7 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
   late List _results; // to hold the output of CNN Model.
   late List _percentages = []; // to hold the percentages only.
   late List _labels = []; // to hold the labels only
+  late List _percentLabels = []; // to hold label and the percentage.
   bool imageSelect = false; // to hold boolean whether image is selected or not.
   final ImagePicker _picker =
       ImagePicker(); // to hold the image picker() object.
@@ -62,12 +62,10 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
   }
 
   Future imageClassification(File image) async {
-    _labels = [];
-    _percentages = [];
     final List? recognitions = await Tflite.runModelOnImage(
       path: image.path,
       numResults: 6,
-      threshold: 0.005,
+      threshold: 0.0005, // 0.005
       imageMean: 0,
       imageStd: 255,
     );
@@ -75,26 +73,23 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
       _results = recognitions!;
       _image = image;
       imageSelect = true;
+      _labels = [];
+      _percentages = [];
+      _percentLabels = [];
 
       if (_results != null) {
         for (final recognition in recognitions) {
-          print('Index: ${recognition['index']}');
-          print('Label: ${recognition['label']}');
-          print('Confidence: ${recognition['confidence']}');
-
           recognition['confidence'] = recognition['confidence'] * 100;
-        }
+          _percentages.add(recognition['confidence']);
+          _labels.add(recognition['label']);
 
-        for (final recognition in recognitions) {
-          _labels.add(recognition['label'] +
+          _percentLabels.add(recognition['label'] +
               " \n" +
               recognition['confidence'].toStringAsFixed(2) +
               "%");
-          _percentages.add(recognition['confidence']);
         }
 
-        print(_labels.toString());
-        print(_percentages.toString());
+        print(_percentLabels.toString());
       }
     });
   }
@@ -145,7 +140,7 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 80,
+                    height: 30,
                   ),
                   const Text(
                     "Prediction",
@@ -158,9 +153,14 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    "80% Golden Retriver",
-                    style: TextStyle(fontSize: 20, color: Colors.green),
+                  Text(
+                    _percentages.isEmpty
+                        ? ""
+                        : _percentages[0].toStringAsFixed(2) +
+                            " % " +
+                            _labels[0].toString(),
+                    // _percentages[0].toStringAsFixed(2) + " % " + _labels[0].toString(),
+                    style: const TextStyle(fontSize: 20, color: Colors.green),
                   ),
                   const SizedBox(
                     height: 90,
@@ -176,7 +176,10 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         Colors.brown,
                       ],
                       size: 150.0,
-                      labels: _labels),
+                      labels: _percentLabels),
+                  const SizedBox(
+                    height: 90,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

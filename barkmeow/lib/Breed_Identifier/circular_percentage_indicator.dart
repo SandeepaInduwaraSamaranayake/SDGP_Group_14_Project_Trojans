@@ -14,7 +14,7 @@ class PercentageIndicator extends StatelessWidget {
     required this.colors,
     required this.labels,
     required this.size,
-    this.strokeWidth = 10.0,
+    this.strokeWidth = 20.0,
   });
 
   @override
@@ -84,7 +84,7 @@ class _CircularPercentagePainter extends CustomPainter {
 
       // calculate label offset
       final labelRadius =
-          radius + strokeWidth / 2 + radius * 0.1 + labelPainter.width / 2;
+          radius + strokeWidth / 2 + radius * 0.1 + labelPainter.width / 4;
       final labelAngle = currentAngle + sweepAngle / 2;
       final labelOffset = Offset(
         center.dx + labelRadius * math.cos(labelAngle) - labelPainter.width / 2,
