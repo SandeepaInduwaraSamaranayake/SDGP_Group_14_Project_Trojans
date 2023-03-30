@@ -1,6 +1,7 @@
 import 'dart:io';
-import 'package:barkmeow/Breed_Identifier/widgets/action_btn.dart';
+import 'package:barkmeow/Breed_Identifier/widgets/camera_action_btn.dart';
 import 'package:barkmeow/Breed_Identifier/widgets/action_text.dart';
+import 'package:barkmeow/Breed_Identifier/widgets/gallary_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
@@ -99,7 +100,7 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
               recognition['confidence'].toStringAsFixed(2) +
               "%");
         }
-        print(_percentLabels.toString());
+        //print(_percentLabels.toString());
       }
     });
   }
@@ -154,18 +155,18 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
               ),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: screenHeight * 0.04, // 20
                   ),
-                  const Text(
+                  Text(
                     "Prediction",
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 40,
+                      fontSize: screenWidth * 0.08, // 40
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: screenHeight * 0.02, // 10
                   ),
                   Text(
                     _percentages.isEmpty
@@ -173,13 +174,16 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         : _percentages[0].toStringAsFixed(2) +
                             " % " +
                             _labels[0].toString(),
-                    style: const TextStyle(fontSize: 20, color: Colors.green),
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.04, //20
+                      color: Colors.green,
+                    ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: screenHeight * 0.02, //50
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: EdgeInsets.all(screenWidth * 0.03), //10
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -187,34 +191,44 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         PercentageIndicator(
                           percentages: _percentages,
                           colors: _colors,
-                          size: 165.0,
+                          size: screenWidth * 0.3, //165
                         ),
                         SizedBox(
-                          height: 200,
+                          height: screenHeight * 0.23, //200
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               for (int i = 0; i < _labels.length; i++)
                                 Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 12),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: screenWidth * 0.01, //10
+                                    vertical: screenHeight * 0.002, //3
+                                  ),
                                   child: Row(
                                     children: [
                                       Container(
-                                        width: 15,
-                                        height: 15,
+                                        width: screenWidth * 0.03, //15
+                                        height: screenWidth * 0.03, //15
                                         decoration: BoxDecoration(
                                           color: _colors[i],
                                           shape: BoxShape.circle,
                                         ),
                                       ),
-                                      const SizedBox(width: 12),
-                                      Text(
-                                        _percentLabels[i],
-                                        style: TextStyle(
-                                          color: _colors[i],
-                                          fontSize: 16,
+                                      SizedBox(
+                                        width: screenWidth * 0.01, //10
+                                      ),
+                                      SizedBox(
+                                        width: screenWidth * 0.5,
+                                        child: Text(
+                                          _percentLabels[i],
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 3,
+                                          softWrap: false,
+                                          style: TextStyle(
+                                            color: _colors[i],
+                                            fontSize: screenWidth * 0.032, //16
+                                          ),
                                         ),
                                       )
                                     ],
@@ -226,8 +240,8 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
+                  SizedBox(
+                    height: screenHeight * 0.01, // 40
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -236,26 +250,19 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         children: [
                           InkWell(
                             onTap: pickCameraImage,
-                            child: const ActionButton(
-                              icon: Icon(
-                                Icons.camera,
-                              ),
-                            ),
+                            child: const CameraActionButton(),
                           ),
                           const ActionText(text: "Take Photo"),
                         ],
                       ),
-                      const SizedBox(
-                        width: 90,
+                      SizedBox(
+                        width: screenWidth * 0.3, // 90
                       ),
                       Column(
                         children: [
                           InkWell(
-                            onTap: pickGalleryImage,
-                            child: const ActionButton(
-                              icon: Icon(Icons.photo_library),
-                            ),
-                          ),
+                              onTap: pickGalleryImage,
+                              child: const GallaryActionButton()),
                           const ActionText(text: "Gallary")
                         ],
                       ),

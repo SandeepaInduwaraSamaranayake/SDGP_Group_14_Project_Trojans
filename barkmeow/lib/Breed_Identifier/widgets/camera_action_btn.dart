@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ActionButton extends StatelessWidget {
-  final Icon icon;
-
-  const ActionButton({
+class CameraActionButton extends StatelessWidget {
+  const CameraActionButton({
     super.key,
-    required this.icon,
   });
 
   @override
@@ -14,10 +11,11 @@ class ActionButton extends StatelessWidget {
       radius: 50.0,
       backgroundColor: Colors.blue,
       child: Icon(
-        Icons.photo_camera,
+        Icons.camera_alt,
         color: Colors.white,
         size: 40,
       ),
     );
   }
 }
+

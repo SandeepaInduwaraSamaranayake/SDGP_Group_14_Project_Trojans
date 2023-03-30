@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:barkmeow/size_configs.dart';
 
 class ActionText extends StatelessWidget {
   final String text;
@@ -9,12 +10,16 @@ class ActionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //get screen size configuration.
+    SizeConfig().init(context);
+    double screenHeight = SizeConfig.screenHeight!;
+    double screenWidth = SizeConfig.screenWidth!;
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(screenWidth * 0.03), //20
       child: Text(
         text,
-        style: const TextStyle(
-          fontSize: 18,
+        style: TextStyle(
+          fontSize: screenWidth * 0.04, // 18
         ),
       ),
     );
