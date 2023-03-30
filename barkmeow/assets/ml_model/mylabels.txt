@@ -1,6 +1,6 @@
 Affenpinscher
-Afghan_hound
-Airedale_terrier
+Afghan hound
+Airedale terrier
 Akita
-Alaskan_malamute
-American_eskimo_dog
+Alaskan malamute
+American eskimo dog

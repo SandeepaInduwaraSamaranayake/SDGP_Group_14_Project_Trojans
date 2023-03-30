@@ -4,7 +4,6 @@ import 'dart:math' as math;
 class PercentageIndicator extends StatelessWidget {
   final List percentages; // list of percentage values
   final List colors; // list of corresponding colors
-  final List labels; // list of corresponding labels
   final double size; // width and height of the widget
   final double strokeWidth; // stroke width of the widget
 
@@ -12,7 +11,6 @@ class PercentageIndicator extends StatelessWidget {
     super.key,
     required this.percentages,
     required this.colors,
-    required this.labels,
     required this.size,
     this.strokeWidth = 20.0,
   });
@@ -26,7 +24,6 @@ class PercentageIndicator extends StatelessWidget {
         painter: _CircularPercentagePainter(
           percentages: percentages,
           colors: colors,
-          labels: labels,
           strokeWidth: strokeWidth,
         ),
       ),
@@ -37,13 +34,11 @@ class PercentageIndicator extends StatelessWidget {
 class _CircularPercentagePainter extends CustomPainter {
   List percentages;
   final List colors;
-  List labels;
   final double strokeWidth;
 
   _CircularPercentagePainter({
     required this.percentages,
     required this.colors,
-    required this.labels,
     required this.strokeWidth,
   });
 
@@ -69,31 +64,6 @@ class _CircularPercentagePainter extends CustomPainter {
         false,
         paint,
       );
-
-      final labelPainter = TextPainter(
-        text: TextSpan(
-          text: labels[i],
-          style: TextStyle(
-            color: colors[i],
-            fontSize: radius * 0.2,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        textDirection: TextDirection.ltr,
-      )..layout();
-
-      // calculate label offset
-      final labelRadius =
-          radius + strokeWidth / 2 + radius * 0.1 + labelPainter.width / 4;
-      final labelAngle = currentAngle + sweepAngle / 2;
-      final labelOffset = Offset(
-        center.dx + labelRadius * math.cos(labelAngle) - labelPainter.width / 2,
-        center.dy +
-            labelRadius * math.sin(labelAngle) -
-            labelPainter.height / 2,
-      );
-
-      labelPainter.paint(canvas, labelOffset);
 
       currentAngle += sweepAngle;
     }

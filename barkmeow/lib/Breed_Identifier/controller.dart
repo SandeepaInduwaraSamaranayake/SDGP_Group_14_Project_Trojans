@@ -1,11 +1,13 @@
 import 'dart:io';
+import 'package:barkmeow/Breed_Identifier/widgets/action_btn.dart';
+import 'package:barkmeow/Breed_Identifier/widgets/action_text.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
-
-import 'circular_percentage_indicator.dart';
+import 'package:barkmeow/Breed_Identifier/widgets/circular_percentage_indicator.dart';
 
 class BreedIdentifier extends StatefulWidget {
   const BreedIdentifier({super.key});
@@ -20,6 +22,15 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
   late List _percentages = []; // to hold the percentages only.
   late List _labels = []; // to hold the labels only
   late List _percentLabels = []; // to hold label and the percentage.
+  final List _colors = const [
+    // hold colors for circular percentage indicator.
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.orange,
+    Colors.purple,
+    Colors.brown,
+  ];
   bool imageSelect = false; // to hold boolean whether image is selected or not.
   final ImagePicker _picker =
       ImagePicker(); // to hold the image picker() object.
@@ -65,7 +76,7 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
     final List? recognitions = await Tflite.runModelOnImage(
       path: image.path,
       numResults: 6,
-      threshold: 0.0005, // 0.005
+      threshold: 0.00005, // 0.005
       imageMean: 0,
       imageStd: 255,
     );
@@ -84,11 +95,10 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
           _labels.add(recognition['label']);
 
           _percentLabels.add(recognition['label'] +
-              " \n" +
+              " -" +
               recognition['confidence'].toStringAsFixed(2) +
               "%");
         }
-
         print(_percentLabels.toString());
       }
     });
@@ -96,6 +106,11 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]); // <-- This line will block screen rotation
+
     //get screen size configuration.
     SizeConfig().init(context);
     double screenHeight = SizeConfig.screenHeight!;
@@ -140,14 +155,13 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   const Text(
                     "Prediction",
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 40,
-                      //fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(
@@ -159,26 +173,61 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         : _percentages[0].toStringAsFixed(2) +
                             " % " +
                             _labels[0].toString(),
-                    // _percentages[0].toStringAsFixed(2) + " % " + _labels[0].toString(),
                     style: const TextStyle(fontSize: 20, color: Colors.green),
                   ),
                   const SizedBox(
-                    height: 90,
+                    height: 50,
                   ),
-                  PercentageIndicator(
-                      percentages: _percentages,
-                      colors: const [
-                        Colors.red,
-                        Colors.green,
-                        Colors.blue,
-                        Colors.orange,
-                        Colors.purple,
-                        Colors.brown,
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        PercentageIndicator(
+                          percentages: _percentages,
+                          colors: _colors,
+                          size: 165.0,
+                        ),
+                        SizedBox(
+                          height: 200,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              for (int i = 0; i < _labels.length; i++)
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 15,
+                                        height: 15,
+                                        decoration: BoxDecoration(
+                                          color: _colors[i],
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 12),
+                                      Text(
+                                        _percentLabels[i],
+                                        style: TextStyle(
+                                          color: _colors[i],
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                            ],
+                          ),
+                        ),
                       ],
-                      size: 150.0,
-                      labels: _percentLabels),
+                    ),
+                  ),
                   const SizedBox(
-                    height: 90,
+                    height: 40,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -187,25 +236,13 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         children: [
                           InkWell(
                             onTap: pickCameraImage,
-                            child: const CircleAvatar(
-                              radius: 50.0,
-                              backgroundColor: Colors.blue,
-                              child: Icon(
-                                Icons.photo_camera,
-                                color: Colors.white,
-                                size: 40,
+                            child: const ActionButton(
+                              icon: Icon(
+                                Icons.camera,
                               ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.all(20.0),
-                            child: Text(
-                              "Take Photo",
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
+                          const ActionText(text: "Take Photo"),
                         ],
                       ),
                       const SizedBox(
@@ -215,25 +252,11 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                         children: [
                           InkWell(
                             onTap: pickGalleryImage,
-                            child: const CircleAvatar(
-                              radius: 50.0,
-                              backgroundColor: Colors.blue,
-                              child: Icon(
-                                Icons.photo_library,
-                                color: Colors.white,
-                                size: 40,
-                              ),
+                            child: const ActionButton(
+                              icon: Icon(Icons.photo_library),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.all(20.0),
-                            child: Text(
-                              "Gallary",
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
+                          const ActionText(text: "Gallary")
                         ],
                       ),
                     ],
@@ -247,115 +270,3 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
     );
   }
 }
-
-// class BreedIdentifier extends StatefulWidget {
-//   const BreedIdentifier({Key? key}) : super(key: key);
-
-//   @override
-//   _TfliteModelState createState() => _TfliteModelState();
-// }
-
-// class _TfliteModelState extends State<BreedIdentifier> {
-//   late File _image;
-//   late List _results;
-//   bool imageSelect = false;
-//   @override
-//   void initState() {
-//     super.initState();
-//     loadModel();
-//   }
-
-//   Future loadModel() async {
-//     Tflite.close();
-//     String res;
-//     res = (await Tflite.loadModel(
-//         model: "assets/ml_model/mymodel.tflite",
-//         labels: "assets/ml_model/mylabels.txt"))!;
-//     print("Models loading status: $res");
-//   }
-
-//   Future imageClassification(File image) async {
-//     final List? recognitions = await Tflite.runModelOnImage(
-//       path: image.path,
-//       numResults: 6,
-//       threshold: 0.005,
-//       imageMean: 0,
-//       imageStd: 255,
-//     );
-//     setState(() {
-//       _results = recognitions!;
-//       _image = image;
-//       imageSelect = true;
-
-//       if (_results != null) {
-//         for (final recognition in recognitions) {
-//           print('Index: ${recognition['index']}');
-//           print('Label: ${recognition['label']}');
-//           print('Confidence: ${recognition['confidence']}');
-
-//           recognition['confidence'] = recognition['confidence'] * 100;
-//         }
-//       }
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text("Image Classification"),
-//       ),
-//       body: ListView(
-//         children: [
-//           (imageSelect)
-//               ? Container(
-//                   margin: const EdgeInsets.all(10),
-//                   child: Image.file(_image),
-//                 )
-//               : Container(
-//                   margin: const EdgeInsets.all(10),
-//                   child: const Opacity(
-//                     opacity: 0.8,
-//                     child: Center(
-//                       child: Text("No image selected"),
-//                     ),
-//                   ),
-//                 ),
-//           SingleChildScrollView(
-//             child: Column(
-//               children: (imageSelect)
-//                   ? _results.map((result) {
-//                       return Card(
-//                         child: Container(
-//                           margin: EdgeInsets.all(10),
-//                           child: Text(
-//                             "${result['label']} - ${result['confidence'].toStringAsFixed(0)}%",
-//                             style: const TextStyle(
-//                                 color: Colors.red, fontSize: 20),
-//                           ),
-//                         ),
-//                       );
-//                     }).toList()
-//                   : [],
-//             ),
-//           )
-//         ],
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: pickImage,
-//         tooltip: "Pick Image",
-//         child: const Icon(Icons.image),
-//       ),
-//     );
-//   }
-
-//   Future pickImage() async {
-//     final ImagePicker _picker = ImagePicker();
-//     final XFile? pickedFile = await _picker.pickImage(
-//       source: ImageSource.gallery,
-//       imageQuality: 100,
-//     );
-//     File image = File(pickedFile!.path);
-//     imageClassification(image);
-//   }
-// }
