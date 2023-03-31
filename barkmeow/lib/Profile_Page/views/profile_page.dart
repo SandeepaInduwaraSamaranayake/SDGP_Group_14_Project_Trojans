@@ -8,6 +8,8 @@ import 'package:barkmeow/Profile_Page/widgets/card_view_double_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/card_view_single_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/log_out_widget.dart';
 
+import '../../Profile_Edit_Page/views/edit_profile.dart';
+
 // Profile page
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -46,11 +48,11 @@ class ProfilePage extends StatelessWidget {
             SizedBox(height: sizeV * 2),
             InkWell(
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => const SetPhotoOrVideoScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SetPhotoOrVideoScreen()),
+                );
               },
               child: Text(
                 'Set new Photo or Video',
@@ -88,10 +90,12 @@ class ProfilePage extends StatelessWidget {
               'You can add upto any number of pets',
               style: profileGreyInstructions,
             ),
+
             SizedBox(
               height: sizeV * 2,
             ),
-            const Center(child: LogOutWidget()),
+            const Center(child: LogOutWidget()),//logout widget
+
             SizedBox(height: sizeV * 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

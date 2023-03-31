@@ -1,10 +1,12 @@
+import 'package:barkmeow/Home_Page/views/home_page.dart';
 import 'package:barkmeow/Profile_Page/views/pages.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
-import 'package:barkmeow/Social_Feed/views/pages.dart';
-import 'package:barkmeow/Contact_Us/views/pages.dart';
 import 'package:barkmeow/Help_Center/views/pages.dart';
 import 'package:barkmeow/app_styles.dart';
+
+import '../Explore_Page/views/explore_page.dart';
+import '../Notification_Page/views/notification_page.dart';
 
 class BottomNavigation extends StatefulWidget {
   final int currentIndex;
@@ -33,36 +35,28 @@ class _BottomNavigationState extends State<BottomNavigation> {
       onTap: (index) {
         if (index == 0) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()));
+              MaterialPageRoute(builder: (context) => const HomePage()));
         } else if (index == 1) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ContactUsScreen()));
+              MaterialPageRoute(builder: (context) => ExplorePage()));
         } else if (index == 2) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const HelpCenterScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HelpCenterScreen()));
         } else if (index == 3) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SignUpScreen()));
+              MaterialPageRoute(builder: (context) => const NotificationPage()));
         } else if (index == 4) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const SocialFeedScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()));
         }
       },
 
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility_new_outlined), label: 'Settings'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle), label: 'Settings'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.add_alert), label: 'Notification'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_sharp), label: 'Profile'),
+        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+        BottomNavigationBarItem(icon: Icon(Icons.add_circle), label: 'Settings'),
+        BottomNavigationBarItem(icon: Icon(Icons.add_alert), label: 'Notification'),
+        BottomNavigationBarItem(icon: Icon(Icons.account_circle_sharp), label: 'Profile'),
       ],
       selectedItemColor: navigationBarSelectedColor,
       unselectedItemColor: navigationBarNotSelectedColor,
