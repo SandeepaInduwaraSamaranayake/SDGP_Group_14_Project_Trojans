@@ -252,7 +252,9 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                             onTap: pickCameraImage,
                             child: const CameraActionButton(),
                           ),
-                          const ActionText(text: "Take Photo"),
+                          const ActionText(
+                            text: "Take Photo",
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -263,7 +265,9 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                           InkWell(
                               onTap: pickGalleryImage,
                               child: const GallaryActionButton()),
-                          const ActionText(text: "Gallary")
+                          const ActionText(
+                            text: "Gallary",
+                          )
                         ],
                       ),
                     ],
