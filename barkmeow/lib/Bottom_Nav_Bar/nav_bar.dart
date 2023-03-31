@@ -1,4 +1,5 @@
 import 'package:barkmeow/Home_Page/views/home_page.dart';
+import 'package:barkmeow/Breed_Identifier/views/controller.dart';
 import 'package:barkmeow/Profile_Page/views/pages.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
@@ -38,10 +39,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
               MaterialPageRoute(builder: (context) => const HomePage()));
         } else if (index == 1) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ExplorePage()));
+              MaterialPageRoute(builder: (context) => const ExplorePage()));
         } else if (index == 2) {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HelpCenterScreen()));
+              MaterialPageRoute(builder: (context) => const BreedIdentifier()));
         } else if (index == 3) {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const NotificationPage()));

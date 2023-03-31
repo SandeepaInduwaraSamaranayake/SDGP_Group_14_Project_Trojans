@@ -1,8 +1,9 @@
 import 'package:barkmeow/SignUpPage/views/pages.dart';
-import 'package:barkmeow/SignupOrLogin/widgets/customized_textField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:barkmeow/SignupOrLogin/widgets/customized_button.dart';
+import 'package:barkmeow/Golbal_Widgets/customized_button.dart';
+import 'package:barkmeow/Golbal_Widgets/customized_textField.dart';
+
 
 import '../Home_Page/views/home_page.dart';
 class LoginScreen extends StatefulWidget {
