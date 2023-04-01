@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:barkmeow/size_configs.dart';
 
 class CustomizedButton extends StatelessWidget {
   final String? buttonText;
@@ -14,21 +15,33 @@ class CustomizedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //get screen size configuration
+
+    SizeConfig().init(context);
+    double screenHeight = SizeConfig.screenHeight!;
+    double screenWidth = SizeConfig.screenWidth!;
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(screenWidth * 0.02), //10.0
       child: InkWell(
         onTap: onPressed,
         child: Container(
-          height: 50,
-          width: MediaQuery.of(context).size.width,
+          height: screenHeight * 0.06, // 50
+          width: screenWidth,
           decoration: BoxDecoration(
-              color: buttonColor,
-              border: Border.all(width: 1, color: Colors.white),
-              borderRadius: BorderRadius.circular(10)),
+            color: buttonColor,
+            border: Border.all(
+              width: 1,
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Center(
               child: Text(
             buttonText!,
-            style: TextStyle(color: textColor, fontSize: 15),
+            style: TextStyle(
+              color: textColor,
+              fontSize: screenWidth * 0.03, //15
+            ),
           )),
         ),
       ),

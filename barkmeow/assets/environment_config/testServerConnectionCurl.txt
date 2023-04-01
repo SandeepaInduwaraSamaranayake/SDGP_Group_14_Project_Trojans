@@ -1,22 +1,42 @@
 
-# create a user using curl
-curl -X POST \
-  -H "X-Parse-Application-Id: APPLICATION_ID" \
-  -H "X-Parse-REST-API-Key: REST_API_KEY" \
-  -H "X-Parse-Revocable-Session: 1" \
-  -H "Content-Type: application/json" \
-  -d '{"username":"wertfg","password":"pd_n7!-e8","phone":"415-392-0202"}' \
-  http://localhost:1337/parse/users
+#create a user using curl
+# curl -X POST \
+#   -H "X-Parse-Application-Id: APPLICATION_ID" \
+#   -H "X-Parse-REST-API-Key: REST_API_KEY" \
+#   -H "X-Parse-Revocable-Session: 1" \
+#   -H "Content-Type: application/json" \
+#   -d '{"username":"werwewewtfg","password":"pd_n7!-e8","phone":"415-392-0202"}' \
+#   http://localhost:1337/parse/users
 
 
 # create a class using curl
 
-#curl -X POST
-#-H "X-Parse-Application-Id:  APPLICATION_ID"
-#-H "X-Parse-REST-API-Key: REST_API_KEY" \
-#-H "Content-Type: application/json"
-#-d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}'
-#http://localhost:1337/parse/classes/GameScore
+# curl -X POST \
+# -H "X-Parse-Application-Id:  APPLICATION_ID" \
+# -H "X-Parse-REST-API-Key: REST_API_KEY" \
+# -H "Content-Type: application/json" \
+# -d '{"score":1333q7,"playerName":"Sean Plott1","cheatMode":false}' \
+# http://localhost:1337/parse/GameScore
+
+
+# curl -X POST \
+#   -H "X-Parse-Application-Id: APPLICATION_ID" \
+#   -H "X-Parse-REST-API-Key: REST_API_KEY" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#         "username": "USERNAME9",
+#         "password": "PASSWORD"
+#       }' \
+#   http://127.0.0.1:1337/parse/users
 
 
 
+
+#curl -X POST -H 'content-type: text/plain; charset=utf-8' -H 'user-agent: Flutter Parse SDK 3.1.15' -H 'X-Parse-Application-Id: APPLICATION_ID' -H 'X-Parse-Client-Key: CLIENT_KEY' -d '{"message":"Hi brothers. Parse is now connected"}' http://127.0.0.1:1337/parse/classes/users
+#curl -X GET -H 'user-agent: Flutter Parse SDK 3.1.15' -H 'X-Parse-Application-Id: APPLICATION_ID' -H 'X-Parse-Client-Key: CLIENT_KEY' http://127.0.0.1:1337/parse/health
+
+# curl -X GET \
+#   -H 'user-agent: Flutter Parse SDK 3.1.15' \
+#   -H 'X-Parse-Application-Id: APPLICATION_ID' \
+#   -H 'X-Parse-Client-Key: CLIENT_KEY' \
+#   http://127.0.0.1:1337/parse/health

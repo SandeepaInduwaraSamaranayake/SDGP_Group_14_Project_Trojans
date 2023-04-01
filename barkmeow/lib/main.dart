@@ -1,19 +1,13 @@
-import 'package:barkmeow/AppConfiguration/server_status.dart';
+import 'package:barkmeow/ServerConnection/connection.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:barkmeow/AppConfiguration/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:barkmeow/Onboarding_screens/views/pages.dart';
 import 'package:barkmeow/Profile_Page/views/profile_page.dart';
 
 // To hold boolean value whether the user have seen the onboard screens or not.
 bool? seenOnboard;
-
-// To hold the configuration of the application.
-// ? indicates that config variable is nullable(can be null).
-AppConfig? config;
 
 void main() async {
   // Bind method of a Flutter app to initialize the binding of the Flutter
@@ -31,41 +25,8 @@ void main() async {
   // If shared preferences seenOnboard variable is null, set it to false.
   seenOnboard = pref.getBool('seenOnboard') ?? false;
 
-  // declaring and initialising running mode. can be 'local' or 'remote'.
-  // **** If you are using local  backend server use 'local'  ****
-  // **** If you are using remote backend server use 'remote' ****
-  // update local.json or remote.json files according to your server configuration.
-  String runningMode = 'local';
-
-  // load our configuration at the beginning of the app.
-  config = await loadConfig(runningMode);
-
-  // create connection to parse server
-  // ! creates a null check.
-  // ! (Null assertion operator), we are essentially telling the Dart compiler to
-  // "trust" that the value we're referring to will not be null, and to throw an
-  // exception if it is.
-  await Parse().initialize(config!.keyApplicationId, config!.keyParseServerUrl,
-      clientKey: config!.keyClientKey, autoSendSessionId: true);
-
-  // This verifyParseServer() method will check whether server is running or down.
-  // If the server is down please double check the local.json and remote.json, for
-  // configuration issues. local.json keyParseServerUrl should be using your
-  // local nodejs server's ip address.
-  // remote.json file will use your remote parse server.
-  bool serverIsUp = await ServerStatus.verifyParseServer(
-      Uri.parse(config!.keyParseServerUrl));
-
-  // print the status of the server according to the serverIsUp boolean value.
-  // *** uncomment if you want ***
-  if (serverIsUp) {
-    //print('Server is up and running!');
-  } else {
-    //print('Server is down!');
-  }
-
-  // Send object to the server to test server is responding.
-  await ServerStatus.sendSampleObjectToServer();
+  // create a parse server object.
+  ParseServerConnection();
 
   // finally launch application.
   runApp(const MyApp());
