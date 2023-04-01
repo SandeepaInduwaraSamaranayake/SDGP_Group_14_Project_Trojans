@@ -1,3 +1,4 @@
+import 'package:barkmeow/Home_Page/views/home_page.dart';
 import 'package:barkmeow/ServerConnection/connection.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
         fontFamily: "Poppins",
       ),
-      home: seenOnboard == true ? const SignUpScreen() : const ProfilePage(),
+      home: seenOnboard == true ? const SignUpScreen() : const HomePage(),
     );
   }
 }

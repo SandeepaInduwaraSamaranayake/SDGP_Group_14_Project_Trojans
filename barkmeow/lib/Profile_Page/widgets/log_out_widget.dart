@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../LogOut_Page/views/log_out_page.dart';
+
 class LogOutWidget extends StatelessWidget {
   const LogOutWidget({
     super.key,
@@ -15,11 +17,11 @@ class LogOutWidget extends StatelessWidget {
             scale: 1,
             child: IconButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => const LogOutScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LogOutScreen()),
+                );
               },
               icon: const Icon(Icons.add_to_home_screen),
               color: Colors.cyan,
@@ -27,11 +29,11 @@ class LogOutWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //       builder: (context) => const LogOutScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const LogOutScreen()),
+              );
             },
             child: const Padding(
               padding: EdgeInsets.only(right: 28.0),
