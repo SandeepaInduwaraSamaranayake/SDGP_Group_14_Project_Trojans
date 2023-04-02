@@ -7,8 +7,7 @@ import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 import 'package:barkmeow/Profile_Page/widgets/card_view_double_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/card_view_single_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/log_out_widget.dart';
-
-import '../../Profile_Edit_Page/views/edit_profile.dart';
+import 'package:barkmeow/Profile_Edit_Page/views/edit_profile.dart';
 
 // Profile page
 class ProfilePage extends StatelessWidget {

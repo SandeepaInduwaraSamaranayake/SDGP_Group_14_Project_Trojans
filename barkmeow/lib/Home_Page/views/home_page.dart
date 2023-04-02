@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Bottom_Nav_Bar/nav_bar.dart';
+import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
     return SizedBox(
       height: 108,
       child: ListView.builder(
-        scrollDirection: Axis.horizontal,//scroll
+        scrollDirection: Axis.horizontal, //scroll
         itemCount: 10, // replace with number of stories
         itemBuilder: (BuildContext context, int index) {
           return Padding(
@@ -42,7 +42,8 @@ class HomePage extends StatelessWidget {
               children: const [
                 CircleAvatar(
                   radius: 35,
-                  backgroundImage: AssetImage('assets/images/profile.png'),
+                  backgroundImage:
+                      AssetImage('assets/images/home_page/profile.png'),
                 ),
                 SizedBox(height: 2),
                 Text(
@@ -73,7 +74,8 @@ class HomePage extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     radius: 20,
-                    backgroundImage: AssetImage('assets/images/profile.png'),
+                    backgroundImage:
+                        AssetImage('assets/images/home_page/profile.png'),
                   ),
                   const SizedBox(width: 10),
                   Column(
@@ -92,12 +94,12 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Image.asset(
-              'assets/images/post.png',
-              fit: BoxFit.cover,
-              height: 300,
-              width: double.infinity,
-            ),
+            //  Image.asset(
+            //  'assets/images/post.png',
+            //  fit: BoxFit.cover,
+            //   height: 300,
+            //    width: double.infinity,
+            //  ),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -148,8 +150,8 @@ class HomePage extends StatelessWidget {
                     children: const [
                       CircleAvatar(
                         radius: 12,
-                        backgroundImage: AssetImage(
-                            'assets/images/profile.png'),
+                        backgroundImage:
+                            AssetImage('assets/images/home_page/profile.png'),
                       ),
                       SizedBox(width: 10),
                       Expanded(

@@ -5,9 +5,8 @@ import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/Help_Center/views/pages.dart';
 import 'package:barkmeow/app_styles.dart';
-
-import '../Explore_Page/views/explore_page.dart';
-import '../Notification_Page/views/notification_page.dart';
+import 'package:barkmeow/Explore_Page/views/explore_page.dart';
+import 'package:barkmeow/Notification_Page/views/notification_page.dart';
 
 class BottomNavigation extends StatefulWidget {
   final int currentIndex;
@@ -38,14 +37,16 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomePage()));
         } else if (index == 1) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ExplorePage()));
+         // Navigator.push(context,
+              //MaterialPageRoute(builder: (context) => const ExplorePage()));
         } else if (index == 2) {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const BreedIdentifier()));
         } else if (index == 3) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const NotificationPage()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const NotificationPage()));
         } else if (index == 4) {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const ProfilePage()));
@@ -55,9 +56,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
-        BottomNavigationBarItem(icon: Icon(Icons.add_circle), label: 'Settings'),
-        BottomNavigationBarItem(icon: Icon(Icons.add_alert), label: 'Notification'),
-        BottomNavigationBarItem(icon: Icon(Icons.account_circle_sharp), label: 'Profile'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle), label: 'Settings'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.add_alert), label: 'Notification'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_sharp), label: 'Profile'),
       ],
       selectedItemColor: navigationBarSelectedColor,
       unselectedItemColor: navigationBarNotSelectedColor,

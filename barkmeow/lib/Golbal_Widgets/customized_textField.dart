@@ -35,15 +35,19 @@ class CustomizedTextfieldState extends State<CustomizedTextfield> {
         autocorrect: widget.isPassword! ? false : true,
         // if isPassword is true, obscureText. otherwise show content.
         obscureText: widget.isPassword! ? _obscureText : !_obscureText,
-        // 
+        // set controller.
         controller: widget.myController,
+        // input decoration.
         decoration: InputDecoration(
+          // if isPassword is true, then show the icon to show and hide password.
+          // otherwise show nothing.
           suffixIcon: widget.isPassword!
               ? IconButton(
                   icon: Icon(
                     _obscureText ? Icons.visibility_off : Icons.visibility,
                     color: Colors.grey,
                   ),
+                  // if this password show/hide button pressed,
                   onPressed: () {
                     setState(() {
                       widget.isPassword!

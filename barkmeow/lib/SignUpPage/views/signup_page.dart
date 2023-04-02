@@ -208,7 +208,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           title: const Text("Error!"),
           content: Text(errorMessage),
           actions: <Widget>[
-            FloatingActionButton(
+            TextButton(
               child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -228,7 +228,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           title: const Text("Success!"),
           content: const Text("User was successfully created!"),
           actions: <Widget>[
-            FloatingActionButton(
+            TextButton(
               child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
