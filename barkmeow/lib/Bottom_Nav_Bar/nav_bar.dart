@@ -37,7 +37,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomePage()));
         } else if (index == 1) {
-         Navigator.push(context,
+          Navigator.push(context,
               MaterialPageRoute(builder: (context) => const SignUpScreen()));
         } else if (index == 2) {
           Navigator.push(context,
@@ -54,14 +54,26 @@ class _BottomNavigationState extends State<BottomNavigation> {
       },
 
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle), label: 'Settings'),
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.add_alert), label: 'Notification'),
+          icon: Icon(Icons.explore),
+          label: 'Explore',
+        ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_sharp), label: 'Profile'),
+          icon: Icon(Icons.add_circle),
+          label: 'Settings',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add_alert),
+          label: 'Notification',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_sharp),
+          label: 'Profile',
+        ),
       ],
       selectedItemColor: navigationBarSelectedColor,
       unselectedItemColor: navigationBarNotSelectedColor,

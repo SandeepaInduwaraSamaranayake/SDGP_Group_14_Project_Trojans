@@ -1,10 +1,12 @@
-import 'package:barkmeow/Login/login_screen.dart';
+import 'package:barkmeow/Golbal_Widgets/BottomSeperater.dart';
+import 'package:barkmeow/SignIn_Page/views/login_screen.dart';
 import 'package:barkmeow/SignIn_Page/views/facebook_login.dart';
 import 'package:barkmeow/Golbal_Widgets/head_title.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_button.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:barkmeow/app_styles.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
@@ -87,33 +89,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 CustomizedButton(
                   buttonText: "Sign Up",
-                  buttonColor: Colors.orange,
-                  textColor: Colors.black,
+                  buttonColor: signInSignUpBtnColor,
+                  textColor: signInSignUpBtnTxtColor,
                   onPressed: () => doUserRegistration(),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(screenWidth * 0.05), //20
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 1,
-                        width: screenWidth * 0.34,
-                        color: Colors.grey,
-                      ),
-                      const Text(
-                        "Or Sign In with",
-                        style: TextStyle(
-                          color: Color(0XFF6A707C),
-                        ),
-                      ),
-                      Container(
-                        height: 1,
-                        width: screenWidth * 0.34,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
+                BottomSeperater(
+                  screenWidth: screenWidth,
+                  caption: "Or Sign In with",
                 ),
                 Center(
                   child: Column(
@@ -148,14 +130,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: screenWidth * 0.25,
-                      vertical: screenHeight * 0.005),
+                      vertical: screenHeight * 0.02),
                   child: Row(
                     children: [
-                      const Text(
+                      Text(
                         "Already have an account?",
                         style: TextStyle(
-                          color: Color(0XFF6A707C),
-                          fontSize: 15,
+                          color: signInSignUpGreytxtColor,
+                          fontSize: screenWidth * 0.03, //15
                         ),
                       ),
                       InkWell(
@@ -167,11 +149,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           "Login.",
                           style: TextStyle(
-                            color: Colors.orange,
-                            //fontSize: 15
+                            color: signInSignUptxtColor,
+                            fontSize: screenWidth * 0.03, //15
                           ),
                         ),
                       )

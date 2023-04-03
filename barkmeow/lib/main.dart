@@ -60,7 +60,9 @@ void main() async {
       clientKey: config!.keyClientKey, autoSendSessionId: true, debug: true);
 
   // check parse obejct is initialized.
-  print(Parse().hasParseBeenInitialized());
+  print(
+    Parse().hasParseBeenInitialized(),
+  );
 
   // This verifyParseServer() method will check whether server is running or down.
   // If the server is down please double check the assets/local.json and assets/remote.json, for
@@ -131,7 +133,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.orange,
         fontFamily: "Poppins",
       ),
       //home: seenOnboard == true ? const SignUpScreen() : const HomePage(),

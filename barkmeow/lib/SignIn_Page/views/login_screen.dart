@@ -1,9 +1,12 @@
+import 'package:barkmeow/Golbal_Widgets/BottomSeperater.dart';
 import 'package:barkmeow/Golbal_Widgets/head_title.dart';
+import 'package:barkmeow/SignIn_Page/widgets/forgot_password.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/Golbal_Widgets/back_button.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:barkmeow/app_styles.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_button.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_textfield.dart';
@@ -83,23 +86,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: "Enter your Password",
                   isPassword: true,
                 ),
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                        color: Color(0XFF6A707C),
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
+                const ForgotPassword(),
                 CustomizedButton(
                   buttonText: "Login",
-                  buttonColor: Colors.orange,
-                  textColor: Colors.black,
+                  buttonColor: signInSignUpBtnColor,
+                  textColor: signInSignUpBtnTxtColor,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -109,29 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     );
                   },
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 1,
-                        width: screenHeight * 0.15,
-                        color: Colors.grey,
-                      ),
-                      const Text(
-                        "Or Login with",
-                        style: TextStyle(
-                          color: Color(0XFF6A707C),
-                        ),
-                      ),
-                      Container(
-                        height: 1,
-                        width: screenHeight * 0.15,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
+                BottomSeperater(
+                  screenWidth: screenWidth,
+                  caption: "Or Login with",
                 ),
                 Center(
                   child: Column(
@@ -161,10 +132,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       vertical: screenHeight * 0.005),
                   child: Row(
                     children: [
-                      const Text(
+                      Text(
                         "Don't have an account?",
                         style: TextStyle(
-                          color: Color(0XFF6A707C),
+                          color: signInSignUpGreytxtColor,
                           fontSize: 15,
                         ),
                       ),
@@ -177,11 +148,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           "Sign Up.",
                           style: TextStyle(
-                            color: Colors.orange,
-                            //fontSize: 15
+                            color: signInSignUptxtColor,
+                            fontSize: 15
                           ),
                         ),
                       ),

@@ -10,11 +10,22 @@ Color kSecondaryColor = const Color(0xff573353);
 
 // defining navigation bar selected and unselected colors.
 Color navigationBarSelectedColor = const Color(0xff000000);
-Color navigationBarNotSelectedColor = const Color(0xFF2196F3);
+Color navigationBarNotSelectedColor = const Color(0xFFFFA500);
 
 // defining profile page colors.
 Color cyanInkwellColor = const Color(0xFF00BCD4);
 Color greyColor = const Color(0x60000000);
+
+// sign in/ sign up button colors.
+Color signInSignUpBtnColor = const Color(0xFFFFA500);
+// sign in/ sign up orange small text colors.
+Color signInSignUptxtColor = const Color(0xFFFFA500);
+
+// sign in / sign up grey small text colors.
+Color signInSignUpGreytxtColor = const Color(0XFF6A707C);
+
+// sign in / sign up btn txt colors.
+Color signInSignUpBtnTxtColor = Colors.black;
 
 // defining text styles for onboarding screens.
 final kTitle = TextStyle(

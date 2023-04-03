@@ -1,4 +1,4 @@
-import 'package:barkmeow/Login/login_screen.dart';
+import 'package:barkmeow/SignIn_Page/views/login_screen.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_button.dart';
 import 'package:flutter/material.dart';

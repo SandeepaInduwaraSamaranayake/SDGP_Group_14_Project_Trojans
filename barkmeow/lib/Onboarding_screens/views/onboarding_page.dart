@@ -1,5 +1,6 @@
 import 'package:barkmeow/Onboarding_screens/model/onboard_data.dart';
 import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
+import 'package:barkmeow/main.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/app_styles.dart';
@@ -37,7 +38,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     // getting an instance of SharedPreferences class.
     SharedPreferences pref = await SharedPreferences.getInstance();
     // setting seenOnboard variable to true after showing the onboard screens.
-    //seenOnboard = await pref.setBool('seenOnboard', true);
+    seenOnboard = await pref.setBool('seenOnboard', true);
   }
 
 // This will call the setSeenOnboard() method when running onboard pages for the
