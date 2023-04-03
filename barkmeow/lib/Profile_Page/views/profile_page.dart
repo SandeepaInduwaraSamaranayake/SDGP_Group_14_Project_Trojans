@@ -1,5 +1,7 @@
 import 'package:barkmeow/Contact_Us/views/contact_us_page.dart';
 import 'package:barkmeow/Help_Center/views/pages.dart';
+import 'package:barkmeow/Home_Page/views/home_page.dart';
+import 'package:barkmeow/SignUpPage/views/message.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/app_styles.dart';
@@ -8,9 +10,15 @@ import 'package:barkmeow/Profile_Page/widgets/card_view_double_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/card_view_single_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/log_out_widget.dart';
 import 'package:barkmeow/Profile_Edit_Page/views/edit_profile.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 // Profile page
 class ProfilePage extends StatelessWidget {
+  // get the current user from parseUser.
+  Future<ParseUser?> getUser() async {
+    return await ParseUser.currentUser() as ParseUser?;
+  }
+
   const ProfilePage({super.key});
 
   @override
@@ -21,6 +29,28 @@ class ProfilePage extends StatelessWidget {
     double sizeV = SizeConfig.blockSizeV!;
 
     int currentIndex = 0;
+
+//------------------------------------------------------------------------------
+
+    void doUserLogout() async {
+      final currentUser = await ParseUser.currentUser() as ParseUser;
+      var response = await currentUser.logout();
+      if (response.success) {
+        Message.showSuccess(
+            context: context,
+            message: 'User was successfully logout!',
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+                (Route<dynamic> route) => false,
+              );
+            });
+      } else {
+        Message.showError(context: context, message: response.error!.message);
+      }
+    }
+//------------------------------------------------------------------------------
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -93,7 +123,9 @@ class ProfilePage extends StatelessWidget {
             SizedBox(
               height: sizeV * 2,
             ),
-            const Center(child: LogOutWidget()),//logout widget
+            const Center(
+              child: LogOutWidget(),
+            ), //logout widget
 
             SizedBox(height: sizeV * 1),
             Row(

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BarkMeow</string>
+    <string name="facebook_app_id">169504679295813</string>
+    <string name="fb_login_protocol_scheme">fb169504679295813</string>
+    <string name="facebook_client_token">05f53e36d672c3f2e09bcd6ba0f9568e</string>
+</resources>

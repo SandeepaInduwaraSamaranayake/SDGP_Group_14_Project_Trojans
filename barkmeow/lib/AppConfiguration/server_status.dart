@@ -1,9 +1,7 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
-
 /// This class will check the server status.
 /// If the server is running or down.
-
 class ServerStatus {
   // This method will send http GET request and check whether server is responding
   // with 200 status code which indicates 'OK'. That means server is running.

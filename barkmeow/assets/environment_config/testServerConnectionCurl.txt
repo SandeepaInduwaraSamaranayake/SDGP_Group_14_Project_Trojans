@@ -40,3 +40,13 @@
 #   -H 'X-Parse-Application-Id: APPLICATION_ID' \
 #   -H 'X-Parse-Client-Key: CLIENT_KEY' \
 #   http://127.0.0.1:1337/parse/health
+
+
+# Google signin api curl request
+# curl -X POST \
+#   https://oauth2.googleapis.com/token \
+#   -F 'grant_type=authorization_code' \
+#   -F 'code=4/0AVHEtk5f2F__nB1DPrXwYINvj2_WNcISUvgRu8N-jk1ZcFl7x8RqwxNOepXPfyJxGpOR8A' \
+#   -F 'client_id=417395504891-2t3ob5rq9ag2vhakpvul0brrik71s12g.apps.googleusercontent.com' \
+#   -F 'client_secret=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' \
+#   -F 'redirect_uri=https://oauth.back4app.io/redirect'

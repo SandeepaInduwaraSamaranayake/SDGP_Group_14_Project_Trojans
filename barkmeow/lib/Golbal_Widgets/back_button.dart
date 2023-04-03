@@ -23,11 +23,14 @@ class CustomizedBackButton extends StatelessWidget {
             10,
           ),
         ),
-        child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_sharp),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+        child: Center(
+          child: IconButton(
+              icon: const Icon(Icons.arrow_back_ios_sharp),
+              iconSize: screenWidth * 0.05,
+              onPressed: () {
+                Navigator.pop(context);
+              }),
+        ),
       ),
     );
   }

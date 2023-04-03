@@ -37,8 +37,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomePage()));
         } else if (index == 1) {
-         // Navigator.push(context,
-              //MaterialPageRoute(builder: (context) => const ExplorePage()));
+         Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SignUpScreen()));
         } else if (index == 2) {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const BreedIdentifier()));

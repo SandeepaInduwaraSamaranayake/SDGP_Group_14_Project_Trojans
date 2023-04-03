@@ -1,6 +1,7 @@
+import 'package:barkmeow/SignUpPage/views/message.dart';
+import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
 import 'package:flutter/material.dart';
-
-import '../../LogOut_Page/views/log_out_page.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 class LogOutWidget extends StatelessWidget {
   const LogOutWidget({
@@ -9,6 +10,27 @@ class LogOutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+//------------------------------------------------------------------------------
+    void doUserLogout() async {
+      final currentUser = await ParseUser.currentUser() as ParseUser;
+      var response = await currentUser.logout();
+      if (response.success) {
+        Message.showSuccess(
+            context: context,
+            message: 'User was successfully logout!',
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => LoginOrSignupPage()),
+                (Route<dynamic> route) => false,
+              );
+            });
+      } else {
+        Message.showError(context: context, message: response.error!.message);
+      }
+    }
+//------------------------------------------------------------------------------
+
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -17,11 +39,7 @@ class LogOutWidget extends StatelessWidget {
             scale: 1,
             child: IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const LogOutScreen()),
-                );
+                doUserLogout();
               },
               icon: const Icon(Icons.add_to_home_screen),
               color: Colors.cyan,
@@ -29,11 +47,7 @@ class LogOutWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const LogOutScreen()),
-              );
+                doUserLogout();
             },
             child: const Padding(
               padding: EdgeInsets.only(right: 28.0),

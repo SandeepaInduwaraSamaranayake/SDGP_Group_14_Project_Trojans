@@ -43,6 +43,8 @@ dependencies:
   percent_indicator: ^4.2.3
 
   http: ^0.13.5
+  flutter_facebook_auth: ^5.0.7
+
 
 dev_dependencies:
   flutter_test:
