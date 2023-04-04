@@ -17,12 +17,13 @@ class CardViewDoubleLabel extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               title,
               style: profileCards,
             ),
+            const Spacer(),
             Text(
               value,
               style: profileCardsValues,

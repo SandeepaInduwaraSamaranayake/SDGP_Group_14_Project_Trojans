@@ -27,9 +27,6 @@ class FacebookLoginHelper {
 
       final AccessToken accessToken = result.accessToken!;
 
-      //https://docs.parseplatform.org/parse-server/guide/#facebook-authdata
-      //According to the documentation, we must send a Map with user authentication data.
-
       //Make sign in with Facebook
       parseResponse = await ParseUser.loginWith('facebook',
           facebook(accessToken.token.toString(), accessToken.userId, accessToken.expires));

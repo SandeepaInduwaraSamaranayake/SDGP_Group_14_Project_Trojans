@@ -192,6 +192,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     context: context,
                     message: "User was successfully created!",
                   );
+                  // ignore: use_build_context_synchronously
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const HomePage(),
+                    ),
+                  );
                 } else {
                   // ignore: use_build_context_synchronously
                   Message.showError(

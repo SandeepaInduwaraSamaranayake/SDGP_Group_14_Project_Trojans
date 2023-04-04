@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:barkmeow/Breed_Identifier/widgets/camera_action_btn.dart';
+import 'package:barkmeow/Golbal_Widgets/camera_action_btn.dart';
 import 'package:barkmeow/Breed_Identifier/widgets/action_text.dart';
-import 'package:barkmeow/Breed_Identifier/widgets/gallary_action_button.dart';
+import 'package:barkmeow/Golbal_Widgets/gallary_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
@@ -263,8 +263,9 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
                       Column(
                         children: [
                           InkWell(
-                              onTap: pickGalleryImage,
-                              child: const GallaryActionButton()),
+                            onTap: pickGalleryImage,
+                            child: const GallaryActionButton(),
+                          ),
                           const ActionText(
                             text: "Gallary",
                           )
