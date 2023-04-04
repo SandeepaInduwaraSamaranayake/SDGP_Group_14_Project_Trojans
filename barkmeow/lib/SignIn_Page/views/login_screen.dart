@@ -1,5 +1,6 @@
 import 'package:barkmeow/Golbal_Widgets/BottomSeperater.dart';
 import 'package:barkmeow/Golbal_Widgets/head_title.dart';
+import 'package:barkmeow/SignIn_Page/views/facebook_login.dart';
 import 'package:barkmeow/SignIn_Page/widgets/forgot_password.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/Golbal_Widgets/back_button.dart';
@@ -105,7 +106,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       SignInButton(
                         Buttons.Facebook,
                         text: "LogIn with Facebook",
-                        onPressed: () {},
+                        onPressed: () {
+                          try {
+                            FacebookLoginHelper.doSignInSignUpFacebook(context);
+                          } catch (e) {
+                            Message.showError(
+                              context: context,
+                              message: "Error Occurred",
+                            );
+                          }
+                        },
                       ),
                     ],
                   ),

@@ -63,11 +63,14 @@ class ProfilePage extends StatelessWidget {
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(height: sizeV * 5),
+                    SizedBox(
+                      height: sizeV * 5,
+                    ),
                     const CircleAvatar(
                       radius: 45.0,
-                      backgroundImage:
-                          AssetImage('assets/images/profile_page/profile.png'),
+                      backgroundImage: AssetImage(
+                        'assets/images/profile_page/profile.png',
+                      ),
                     ),
                     SizedBox(height: sizeV * 2),
                     InkWell(
@@ -84,7 +87,9 @@ class ProfilePage extends StatelessWidget {
                         style: profileBlueTitle,
                       ),
                     ),
-                    SizedBox(height: sizeV * 2),
+                    SizedBox(
+                      height: sizeV * 2,
+                    ),
                     const CardViewSingleLabel(
                       cardName: 'Uditha',
                     ),
@@ -100,10 +105,16 @@ class ProfilePage extends StatelessWidget {
                     ),
                     SizedBox(height: sizeV * 2),
                     const CardViewDoubleLabel(
-                        title: 'Change Number', value: '+94703568837'),
+                      title: 'Change Number',
+                      value: '+94703568837',
+                    ),
                     const CardViewDoubleLabel(
-                        title: 'Username', value: '@Uditha'),
-                    SizedBox(height: sizeV * 2),
+                      title: 'Username',
+                      value: '@Uditha',
+                    ),
+                    SizedBox(
+                      height: sizeV * 2,
+                    ),
                     InkWell(
                       onTap: () {
                         // Navigator.push(
@@ -153,11 +164,14 @@ class ProfilePage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const HelpCenterScreen()),
+                                builder: (context) => const HelpCenterScreen(),
+                              ),
                             );
                           },
-                          child: Text('Help Center', style: profileBlueBody),
+                          child: Text(
+                            'Help Center',
+                            style: profileBlueBody,
+                          ),
                         ),
                       ],
                     ),

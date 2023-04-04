@@ -21,41 +21,57 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     double screenWidth = SizeConfig.screenWidth!;
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Reset Password'),
+      appBar: AppBar(
+        title: const Text(
+          'Reset Password',
         ),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-              vertical: screenHeight * 0.01, horizontal: screenWidth * 0.01),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  controller: controllerEmail,
-                  keyboardType: TextInputType.emailAddress,
-                  textCapitalization: TextCapitalization.none,
-                  autocorrect: false,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
-                      labelText: 'E-mail'),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(
+            vertical: screenHeight * 0.01, horizontal: screenWidth * 0.01),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.01,
+                  horizontal: screenWidth * 0.01),
+              child: TextField(
+                controller: controllerEmail,
+                keyboardType: TextInputType.emailAddress,
+                textCapitalization: TextCapitalization.none,
+                autocorrect: false,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                  ),
+                  labelText: 'E-mail',
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              SizedBox(
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.01,
+                  horizontal: screenWidth * 0.01),
+              child: SizedBox(
                 height: 50,
                 child: ElevatedButton(
-                  child: const Text('Reset Password'),
+                  child: const Text(
+                    'Reset Password',
+                  ),
                   onPressed: () => doUserResetPassword(),
                 ),
-              )
-            ],
-          ),
-        ));
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   void doUserResetPassword() async {

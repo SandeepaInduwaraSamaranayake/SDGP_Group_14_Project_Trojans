@@ -118,9 +118,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             try {
                               FacebookLoginHelper.doSignInSignUpFacebook(
                                   context);
-                              // Use the Facebook access token to authenticate the user in your app
                             } catch (e) {
-                              // Handle login errors
+                              Message.showError(
+                                context: context,
+                                message: "Error Occurred",
+                              );
                             }
                           },
                         ),
