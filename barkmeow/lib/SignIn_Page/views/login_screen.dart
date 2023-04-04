@@ -11,6 +11,8 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_button.dart';
 import 'package:barkmeow/Golbal_Widgets/customized_textfield.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
+import 'package:barkmeow/Golbal_Widgets/message.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -22,21 +24,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  void login() {
-    // Perform login logic here
-    // ...
-
-    // Navigate to HomePage
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => const HomePage(),
-    //   ),
-    // );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +66,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   screenWidth: screenWidth,
                 ),
                 CustomizedTextfield(
-                  myController: _emailController,
-                  hintText: "Enter your Email",
+                  myController: _usernameController,
+                  hintText: "Enter your Usrename",
                   isPassword: false,
                 ),
                 CustomizedTextfield(
@@ -88,28 +77,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const ForgotPassword(),
                 CustomizedButton(
-                  buttonText: "Login",
+                  buttonText: "LogIn",
                   buttonColor: signInSignUpBtnColor,
                   textColor: signInSignUpBtnTxtColor,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const HomePage(),
-                      ),
-                    );
+                    // get data from text fields.
+                    final username = _usernameController.text.trim();
+                    final password = _passwordController.text.trim();
+                    doUserLogin(username, password);
                   },
                 ),
                 BottomSeperater(
                   screenWidth: screenWidth,
-                  caption: "Or Login with",
+                  caption: "Or LogIn with",
                 ),
                 Center(
                   child: Column(
                     children: [
                       SignInButton(
                         Buttons.Google,
-                        text: "Login with Google",
+                        text: "LogIn with Google",
                         onPressed: () {},
                       ),
                       const SizedBox(
@@ -117,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       SignInButton(
                         Buttons.Facebook,
-                        text: "Login with Facebook",
+                        text: "LogIn with Facebook",
                         onPressed: () {},
                       ),
                     ],
@@ -136,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Don't have an account?",
                         style: TextStyle(
                           color: signInSignUpGreytxtColor,
-                          fontSize: 15,
+                          fontSize: screenWidth * 0.03,
                         ),
                       ),
                       InkWell(
@@ -149,10 +136,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         },
                         child: Text(
-                          "Sign Up.",
+                          " Sign Up.",
                           style: TextStyle(
                             color: signInSignUptxtColor,
-                            fontSize: 15
+                            fontSize: screenWidth * 0.03,
                           ),
                         ),
                       ),
@@ -165,5 +152,41 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void doUserLogin(String username, String password) async {
+    if (username.isNotEmpty) {
+      if (password.isNotEmpty) {
+        // creating user object.
+        final user = ParseUser(username, password, null);
+        // make login the user.
+        var response = await user.login();
+
+        if (response.success) {
+          // ignore: use_build_context_synchronously
+          Message.showSuccess(
+              context: context, message: "User was successfully login!");
+          // if only login is success, redirect user to the homepage.
+          setState(
+            () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const HomePage(),
+                ),
+              );
+            },
+          );
+        } else {
+          // ignore: use_build_context_synchronously
+          Message.showError(context: context, message: response.error!.message);
+        }
+      } else {
+        Message.showError(context: context, message: "Email should be filled!");
+      }
+    } else {
+      Message.showError(
+          context: context, message: "Username should be filled!");
+    }
   }
 }

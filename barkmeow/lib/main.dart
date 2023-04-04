@@ -19,7 +19,7 @@ bool? seenOnboard;
 // **** If you are using local  backend server use 'local'  ****
 // **** If you are using remote backend server use 'remote' ****
 // update local.json or remote.json files according to your server configuration.
-// if you are running local parse server, you need to confgure port forwarding
+// if you are running local parse server, you need to confgure port forwarding.
 // (add a port forward rule) in your router to accept the parse server connections.
 // - src port - your outside device parse server requesting port (normally 1337).
 // - Dest. IP Address - your computer ip address(e.g. 192.168.8.117)(use 'ipconfig' command in cmd).
@@ -147,9 +147,10 @@ class MyApp extends StatelessWidget {
                     return const Scaffold(
                       body: Center(
                         child: SizedBox(
-                            width: 100,
-                            height: 100,
-                            child: CircularProgressIndicator()),
+                          width: 100,
+                          height: 100,
+                          child: CircularProgressIndicator(),
+                        ),
                       ),
                     );
                   default:
@@ -159,7 +160,8 @@ class MyApp extends StatelessWidget {
                       return const SignUpScreen();
                     }
                 }
-              })
+              },
+            )
           : const OnBoardingPage(),
     );
   }

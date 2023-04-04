@@ -24,8 +24,14 @@ Color signInSignUptxtColor = const Color(0xFFFFA500);
 // sign in / sign up grey small text colors.
 Color signInSignUpGreytxtColor = const Color(0XFF6A707C);
 
+// forgot password text color
+Color forgotPasswordGreytxtColor = const Color(0XFF6A707C);
+
 // sign in / sign up btn txt colors.
 Color signInSignUpBtnTxtColor = Colors.black;
+
+// breed identifier circular buttons background color.
+Color circularButtonBackColor = const Color(0xFFFFA500);
 
 // defining text styles for onboarding screens.
 final kTitle = TextStyle(

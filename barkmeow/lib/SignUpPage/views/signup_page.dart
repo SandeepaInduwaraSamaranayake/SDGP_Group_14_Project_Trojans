@@ -1,4 +1,5 @@
 import 'package:barkmeow/Golbal_Widgets/BottomSeperater.dart';
+import 'package:barkmeow/Golbal_Widgets/message.dart';
 import 'package:barkmeow/SignIn_Page/views/login_screen.dart';
 import 'package:barkmeow/SignIn_Page/views/facebook_login.dart';
 import 'package:barkmeow/Golbal_Widgets/head_title.dart';
@@ -95,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 BottomSeperater(
                   screenWidth: screenWidth,
-                  caption: "Or Sign In with",
+                  caption: "Or Sign Up with",
                 ),
                 Center(
                   child: Column(
@@ -104,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         padding: EdgeInsets.all(screenWidth * 0.01), //8
                         child: SignInButton(
                           Buttons.Google,
-                          text: "Sign In with Google",
+                          text: "Sign Up with Google",
                           onPressed: () {},
                         ),
                       ),
@@ -112,7 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         padding: EdgeInsets.all(screenWidth * 0.01), //8
                         child: SignInButton(
                           Buttons.Facebook,
-                          text: "Sign In with Facebook",
+                          text: "Sign Up with Facebook",
                           onPressed: () async {
                             try {
                               FacebookLoginHelper.doSignInSignUpFacebook(
@@ -150,7 +151,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           );
                         },
                         child: Text(
-                          "Login.",
+                          " Login.",
                           style: TextStyle(
                             color: signInSignUptxtColor,
                             fontSize: screenWidth * 0.03, //15
@@ -184,68 +185,39 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 final user = ParseUser.createUser(username, password, email);
                 var response = await user.signUp();
                 if (response.success) {
-                  showSuccess();
+                  // ignore: use_build_context_synchronously
+                  Message.showSuccess(
+                    context: context,
+                    message: "User was successfully created!",
+                  );
                 } else {
-                  showError(response.error!.message);
+                  // ignore: use_build_context_synchronously
+                  Message.showError(
+                      context: context, message: response.error!.message);
                 }
               } else {
-                showError(validationResponse);
+                Message.showError(
+                    context: context, message: validationResponse);
               }
             } else {
-              showError("Password confirmation failed!");
+              Message.showError(
+                  context: context, message: "Password confirmation failed!");
             }
           } else {
-            showError("You should confirm password!");
+            Message.showError(
+                context: context, message: "You should confirm password!");
           }
         } else {
-          showError("Password should be filled!");
+          Message.showError(
+              context: context, message: "Password should be filled!");
         }
       } else {
-        showError("Email should be filled!");
+        Message.showError(context: context, message: "Email should be filled!");
       }
     } else {
-      showError("Username should be filled!");
+      Message.showError(
+          context: context, message: "Username should be filled!");
     }
-  }
-
-  void showError(String errorMessage) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Error!"),
-          content: Text(errorMessage),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void showSuccess() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Success!"),
-          content: const Text("User was successfully created!"),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
   }
 
   String? validatePassword(String value) {

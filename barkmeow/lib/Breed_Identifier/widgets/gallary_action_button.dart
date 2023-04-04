@@ -1,3 +1,4 @@
+import 'package:barkmeow/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 
@@ -8,14 +9,14 @@ class GallaryActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        //get screen size configuration
+    //get screen size configuration
     SizeConfig().init(context);
     double screenHeight = SizeConfig.screenHeight!;
     double screenWidth = SizeConfig.screenWidth!;
-    return const CircleAvatar(
+    return CircleAvatar(
       radius: 50.0,
-      backgroundColor: Colors.blue,
-      child: Icon(
+      backgroundColor: circularButtonBackColor,
+      child: const Icon(
         Icons.photo_library,
         color: Colors.white,
         size: 40,

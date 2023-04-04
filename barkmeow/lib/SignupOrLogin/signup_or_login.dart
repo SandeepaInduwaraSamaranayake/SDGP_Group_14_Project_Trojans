@@ -44,7 +44,7 @@ class LoginOrSignupPage extends StatelessWidget {
               },
             ),
             CustomizedButton(
-              buttonText: "Sign up",
+              buttonText: "Signup",
               buttonColor: Colors.orange,
               textColor: Colors.black,
               onPressed: () {

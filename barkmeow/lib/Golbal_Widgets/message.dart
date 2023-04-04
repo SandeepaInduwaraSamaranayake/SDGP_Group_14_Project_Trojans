@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 // this class will show succcess messages or Error messages.
 class Message {
-  static void showSuccess(
-      {required BuildContext context,
-      required String message,
-      VoidCallback? onPressed}) {
+  static void showSuccess({
+    required BuildContext context,
+    required String message,
+    VoidCallback? onPressed,
+  }) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -29,10 +29,11 @@ class Message {
     );
   }
 
-  static void showError(
-      {required BuildContext context,
-      required String message,
-      VoidCallback? onPressed}) {
+  static void showError({
+    required BuildContext context,
+    required String message,
+    VoidCallback? onPressed,
+  }) {
     showDialog(
       context: context,
       builder: (BuildContext context) {

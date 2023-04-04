@@ -22,7 +22,7 @@ class BottomSeperater extends StatelessWidget {
             width: screenWidth * 0.34,
             color: Colors.grey,
           ),
-           Text(
+          Text(
             caption,
             style: const TextStyle(
               color: Color(0XFF6A707C),

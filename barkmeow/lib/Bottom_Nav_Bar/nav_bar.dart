@@ -34,22 +34,40 @@ class _BottomNavigationState extends State<BottomNavigation> {
       // items: widget.items,
       onTap: (index) {
         if (index == 0) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
         } else if (index == 1) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SignUpScreen()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SignUpScreen(),
+            ),
+          );
         } else if (index == 2) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const BreedIdentifier()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const BreedIdentifier(),
+            ),
+          );
         } else if (index == 3) {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const NotificationPage()));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NotificationPage(),
+            ),
+          );
         } else if (index == 4) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProfilePage(),
+            ),
+          );
         }
       },
 

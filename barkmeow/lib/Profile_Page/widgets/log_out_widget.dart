@@ -1,4 +1,4 @@
-import 'package:barkmeow/SignUpPage/views/message.dart';
+import 'package:barkmeow/Golbal_Widgets/message.dart';
 import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
@@ -10,26 +10,30 @@ class LogOutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//------------------------------------------------------------------------------
+    // this method will logout the user.
     void doUserLogout() async {
       final currentUser = await ParseUser.currentUser() as ParseUser;
       var response = await currentUser.logout();
       if (response.success) {
+        // ignore: use_build_context_synchronously
         Message.showSuccess(
-            context: context,
-            message: 'User was successfully logout!',
-            onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => LoginOrSignupPage()),
-                (Route<dynamic> route) => false,
-              );
-            });
+          context: context,
+          message: 'User was successfully logout!',
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginOrSignupPage(),
+              ),
+              (Route<dynamic> route) => false,
+            );
+          },
+        );
       } else {
+        // ignore: use_build_context_synchronously
         Message.showError(context: context, message: response.error!.message);
       }
     }
-//------------------------------------------------------------------------------
 
     return Center(
       child: Row(
@@ -47,7 +51,7 @@ class LogOutWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-                doUserLogout();
+              doUserLogout();
             },
             child: const Padding(
               padding: EdgeInsets.only(right: 28.0),

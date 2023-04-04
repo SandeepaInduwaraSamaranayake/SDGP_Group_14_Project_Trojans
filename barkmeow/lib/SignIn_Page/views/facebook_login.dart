@@ -2,7 +2,7 @@ import 'package:barkmeow/Home_Page/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'package:barkmeow/SignUpPage/views/message.dart';
+import 'package:barkmeow/Golbal_Widgets/message.dart';
 
 class FacebookLoginHelper {
   static void doSignInSignUpFacebook(BuildContext context) async {
@@ -20,6 +20,7 @@ class FacebookLoginHelper {
       final LoginResult result = await FacebookAuth.instance.login();
 
       if (result.status != LoginStatus.success) {
+        // ignore: use_build_context_synchronously
         Message.showError(context: context, message: result.message!);
         return;
       }
@@ -31,7 +32,7 @@ class FacebookLoginHelper {
 
       //Make sign in with Facebook
       parseResponse = await ParseUser.loginWith('facebook',
-          facebook(accessToken.token, accessToken.userId, accessToken.expires));
+          facebook(accessToken.token.toString(), accessToken.userId, accessToken.expires));
 
       if (parseResponse.success) {
         final ParseUser parseUser = await ParseUser.currentUser() as ParseUser;
@@ -55,6 +56,7 @@ class FacebookLoginHelper {
         parseResponse = await parseUser.save();
 
         if (parseResponse.success) {
+          // ignore: use_build_context_synchronously
           Message.showSuccess(
               context: context,
               message: 'User was successfully with Sign In Facebook!',
@@ -66,10 +68,12 @@ class FacebookLoginHelper {
                 );
               });
         } else {
+          // ignore: use_build_context_synchronously
           Message.showError(
               context: context, message: parseResponse.error!.message);
         }
       } else {
+        // ignore: use_build_context_synchronously
         Message.showError(
             context: context, message: parseResponse.error!.message);
       }
@@ -78,6 +82,4 @@ class FacebookLoginHelper {
       Message.showError(context: context, message: e.toString());
     }
   }
-
-  
 }
