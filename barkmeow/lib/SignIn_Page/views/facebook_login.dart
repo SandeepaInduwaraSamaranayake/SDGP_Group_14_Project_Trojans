@@ -28,8 +28,10 @@ class FacebookLoginHelper {
       final AccessToken accessToken = result.accessToken!;
 
       //Make sign in with Facebook
-      parseResponse = await ParseUser.loginWith('facebook',
-          facebook(accessToken.token.toString(), accessToken.userId, accessToken.expires));
+      parseResponse = await ParseUser.loginWith(
+          'facebook',
+          facebook(accessToken.token.toString(), accessToken.userId,
+              accessToken.expires));
 
       if (parseResponse.success) {
         final ParseUser parseUser = await ParseUser.currentUser() as ParseUser;

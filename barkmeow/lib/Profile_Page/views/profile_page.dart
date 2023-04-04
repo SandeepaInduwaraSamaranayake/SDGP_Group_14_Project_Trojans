@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:barkmeow/Golbal_Widgets/camera_action_btn.dart';
 import 'package:barkmeow/Contact_Us/views/contact_us_page.dart';
 import 'package:barkmeow/Golbal_Widgets/gallary_action_button.dart';
@@ -7,6 +6,7 @@ import 'package:barkmeow/Help_Center/views/pages.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
 import 'package:barkmeow/Golbal_Widgets/message.dart';
 import 'package:barkmeow/SignIn_Page/views/facebook_login.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/app_styles.dart';
@@ -22,6 +22,8 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 // ignore: must_be_immutable
 class ProfilePage extends StatelessWidget {
   late File profilePicture;
+  final ImagePicker _picker =
+      ImagePicker(); // to hold the image picker() object.
 
   // get the current user from parseUser.
   Future<ParseUser?> getUser() async {
@@ -33,9 +35,15 @@ class ProfilePage extends StatelessWidget {
   List<String> splitName(String name) {
     List<String> nameList = name.split(' ');
     if (nameList.length > 2) {
-      return [nameList[0], nameList[nameList.length - 1]];
+      return [
+        nameList[0],
+        nameList[nameList.length - 1],
+      ];
     } else {
-      return [nameList[0], nameList[1]];
+      return [
+        nameList[0],
+        nameList[1],
+      ];
     }
   }
 
@@ -50,9 +58,76 @@ class ProfilePage extends StatelessWidget {
     // current index for nav bar
     int currentIndex = 0;
 
+    // set image to as the user profile image
+    Future<void> uploadProfileImage() async {
+      final currentUser = await ParseUser.currentUser();
+
+      if (currentUser != null && profilePicture != null) {
+        final parseFile =
+            ParseFile(profilePicture, name: 'profile_picture.jpg');
+        try {
+          await parseFile.save();
+          currentUser.set('profilePicture', parseFile);
+          await currentUser.save();
+          // ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Profile picture uploaded successfully.'),
+            ),
+          );
+        } on ParseError catch (error) {
+          // ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'An error occurred while uploading the profile picture. $error',
+              ),
+            ),
+          );
+        }
+      } else {
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Please select a profile picture first.',
+            ),
+          ),
+        );
+      }
+    }
+
+    // method to get gallary image.
+    Future pickGalleryImage() async {
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 100,
+      );
+      if (pickedFile != null) {
+        profilePicture = File(
+          pickedFile.path,
+        );
+        uploadProfileImage();
+      }
+    }
+
+    // method to get camera image.
+    Future pickCameraImage() async {
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.camera,
+        imageQuality: 100,
+      );
+      if (pickedFile != null) {
+        profilePicture = File(
+          pickedFile.path,
+        );
+        uploadProfileImage();
+      }
+    }
+
     // method to select profile picture.
     Future<void> selectProfilePicture(BuildContext context) async {
-      final pickedFile = await showDialog(
+      await showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
@@ -68,33 +143,27 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(
-                      20.0,
+                    padding: EdgeInsets.all(
+                      sizeV * 1.5,
                     ),
                     child: InkWell(
-                      onTap: () async {
-                        Navigator.of(context).pop(
-                          await ImagePicker().pickImage(
-                            source: ImageSource.camera,
-                          ),
-                        );
-                      },
                       child: const CameraActionButton(),
+                      onTap: () {
+                        pickCameraImage();
+                        Navigator.of(context).pop();
+                      },
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(
-                      20.0,
+                    padding: EdgeInsets.all(
+                      sizeV * 1.5,
                     ),
                     child: InkWell(
-                      onTap: () async {
-                        Navigator.of(context).pop(
-                          await ImagePicker().pickImage(
-                            source: ImageSource.gallery,
-                          ),
-                        );
-                      },
                       child: const GallaryActionButton(),
+                      onTap: () {
+                        pickGalleryImage();
+                        Navigator.of(context).pop();
+                      },
                     ),
                   ),
                 ],
@@ -103,12 +172,8 @@ class ProfilePage extends StatelessWidget {
           );
         },
       );
-      if (pickedFile != null) {
-        profilePicture = File(
-          pickedFile.path,
-        );
-      }
     }
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -151,16 +216,22 @@ class ProfilePage extends StatelessWidget {
                                 'photoURL',
                               ),
                             )
-                          : const AssetImage(
-                              'assets/images/profile_page/profile.png',
-                            ) as ImageProvider<Object>,
+                          : snapshot.data?.get('profilePicture') != null
+                              ? NetworkImage(
+                                  snapshot.data?.get('profilePicture') as ParseFile,
+                                )
+                              : const AssetImage(
+                                  'assets/images/profile_page/profile.png',
+                                ) as ImageProvider<Object>,
                     ),
                     SizedBox(
                       height: sizeV * 2,
                     ),
                     InkWell(
                       onTap: () {
-                        selectProfilePicture(context);
+                        selectProfilePicture(
+                          context,
+                        );
                       },
                       child: Text(
                         'Set new Photo',
@@ -212,7 +283,9 @@ class ProfilePage extends StatelessWidget {
                         style: profileBlueTitle,
                       ),
                     ),
-                    SizedBox(height: sizeV * 2),
+                    SizedBox(
+                      height: sizeV * 2,
+                    ),
                     Text(
                       'You can add upto any number of pets',
                       style: profileGreyInstructions,
@@ -225,7 +298,9 @@ class ProfilePage extends StatelessWidget {
                       child: LogOutWidget(),
                     ), //logout widget
 
-                    SizedBox(height: sizeV * 1),
+                    SizedBox(
+                      height: sizeV * 1,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
