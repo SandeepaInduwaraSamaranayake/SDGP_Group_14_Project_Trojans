@@ -1,26 +1,30 @@
 //Help Center
 import 'package:flutter/material.dart';
-import "package:barkmeow/Bottom_Nav_Bar/nav_bar.dart";
 
-class HelpCenterScreen extends StatelessWidget {
-  const HelpCenterScreen({super.key});
+class HelpCenterPage extends StatelessWidget {
+  const HelpCenterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 2;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Help center'),
+        title: const Text('Help Center'),
       ),
-      body: const Center(
-        child: Text('Help center'),
-      ),
-
-      backgroundColor: Colors.white,
-
-      //Navigator Bar
-      bottomNavigationBar: BottomNavigation(
-        currentIndex: currentIndex,
+      body: ListView(
+        children: const [
+          ListTile(
+            title: Text('How to use feature 1'),
+            subtitle: Text('Step-by-step instructions on how to use feature 1.'),
+          ),
+          ListTile(
+            title: Text('How to use feature 2'),
+            subtitle: Text('Step-by-step instructions on how to use feature 2.'),
+          ),
+          ListTile(
+            title: Text('FAQs'),
+            subtitle: Text('Answers to frequently asked questions.'),
+          ),
+        ],
       ),
     );
   }

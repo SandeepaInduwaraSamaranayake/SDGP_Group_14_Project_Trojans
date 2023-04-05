@@ -1,4 +1,5 @@
 import 'package:barkmeow/Home_Page/views/home_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
@@ -85,7 +86,11 @@ class GoogleSignInHelper {
         );
       }
     } on Exception catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
+      }
       Message.showError(context: context, message: e.toString());
     }
   }

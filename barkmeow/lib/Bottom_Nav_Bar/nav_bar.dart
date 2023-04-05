@@ -44,7 +44,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const SignUpScreen(),
+              builder: (context) => const ExplorePage(),
             ),
           );
         } else if (index == 2) {

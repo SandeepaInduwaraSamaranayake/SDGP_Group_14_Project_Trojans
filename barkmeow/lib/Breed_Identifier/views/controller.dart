@@ -116,7 +116,7 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
     SizeConfig().init(context);
     double screenHeight = SizeConfig.screenHeight!;
     double screenWidth = SizeConfig.screenWidth!;
-    int currentIndex = 4;
+    int currentIndex = 2;
 
     return Scaffold(
       backgroundColor: Colors.white,

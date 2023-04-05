@@ -14,7 +14,7 @@ class _NotificationPageState extends State<NotificationPage> {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 0;
+    int currentIndex = 3;
     return Scaffold(
       backgroundColor: Colors.white,
       //Navigator Bar

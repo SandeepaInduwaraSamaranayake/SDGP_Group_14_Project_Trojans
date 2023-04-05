@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../Bottom_Nav_Bar/nav_bar.dart';
+
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
 
@@ -12,10 +14,10 @@ class _ExplorePageState extends State<ExplorePage> {
 
   final List<String> _categories = [
     'Trending',
-    'Food',
-    'Fashion',
-    'Fitness',
-    'Pets',
+    'Pet Food',
+    'Pet Fashion',
+    'Pet Fitness',
+    'Pet Stores',
   ];
 
   final List<String> _images = [
@@ -30,7 +32,11 @@ class _ExplorePageState extends State<ExplorePage> {
 
   @override
   Widget build(BuildContext context) {
+    int currentIndex = 1;
     return Scaffold(
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: currentIndex,
+      ),
       appBar: AppBar(
         title: const Text('Explore'),
         actions: [

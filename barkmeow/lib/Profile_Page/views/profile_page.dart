@@ -217,8 +217,8 @@ class ProfilePage extends StatelessWidget {
                               ),
                             )
                           : snapshot.data?.get('profilePicture') != null
-                              ? NetworkImage(
-                        (snapshot.data!.get('profilePicture') as ParseFile).url!,
+                                ? NetworkImage(
+                                   snapshot.data?.get('profilePicture') as String,
                                 )
                               : const AssetImage(
                                   'assets/images/profile_page/profile.png',
@@ -309,7 +309,7 @@ class ProfilePage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ContactUsScreen(),
+                                builder: (context) => const ContactUsPage(),
                               ),
                             );
                           },
@@ -324,7 +324,7 @@ class ProfilePage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const HelpCenterScreen(),
+                                builder: (context) => const HelpCenterPage(),
                               ),
                             );
                           },
