@@ -218,7 +218,7 @@ class ProfilePage extends StatelessWidget {
                             )
                           : snapshot.data?.get('profilePicture') != null
                               ? NetworkImage(
-                                  snapshot.data?.get('profilePicture') as ParseFile,
+                        (snapshot.data!.get('profilePicture') as ParseFile).url!,
                                 )
                               : const AssetImage(
                                   'assets/images/profile_page/profile.png',

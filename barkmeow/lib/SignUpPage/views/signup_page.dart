@@ -25,7 +25,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _usernameContoller = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
@@ -69,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   screenWidth: screenWidth,
                 ),
                 CustomizedTextfield(
-                  myController: _usernameContoller,
+                  myController: _usernameController,
                   hintText: "Enter Username",
                   isPassword: false,
                 ),
@@ -133,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: screenWidth * 0.25,
-                      vertical: screenHeight * 0.02),
+                      vertical: screenHeight * 0.01),
                   child: Row(
                     children: [
                       Text(
@@ -172,7 +172,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   doUserRegistration() async {
-    final username = _usernameContoller.text.trim();
+    final username = _usernameController.text.trim();
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
     final confirmPassword = _confirmPasswordController.text.trim();

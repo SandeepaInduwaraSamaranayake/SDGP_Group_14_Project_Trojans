@@ -5,6 +5,7 @@ import 'package:barkmeow/SignIn_Page/widgets/forgot_password.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:barkmeow/Golbal_Widgets/back_button.dart';
 import 'package:barkmeow/size_configs.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:barkmeow/app_styles.dart';
@@ -14,6 +15,8 @@ import 'package:barkmeow/Golbal_Widgets/customized_textfield.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
 import 'package:barkmeow/Golbal_Widgets/message.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+
+import 'google_login.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -98,7 +101,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       SignInButton(
                         Buttons.Google,
                         text: "LogIn with Google",
-                        onPressed: () {},
+                        onPressed: () {
+                          try {
+                            GoogleSignInHelper.doSignInSignInGoogle(context);
+                          } on PlatformException catch (e) {
+                            if (kDebugMode) {
+                              print('Platform exception occurred: $e');
+                            }
+                          } catch (e) {
+                            Message.showError(
+                              context: context,
+                              message: "Error Occurred",
+                            );
+                          }
+                        }
                       ),
                       const SizedBox(
                         height: 10,

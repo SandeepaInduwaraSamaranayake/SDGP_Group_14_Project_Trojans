@@ -1,6 +1,7 @@
 import 'package:barkmeow/AppConfiguration/app_config.dart';
 import 'package:barkmeow/AppConfiguration/server_status.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
+import 'package:barkmeow/SignIn_Page/views/login_screen.dart';
 import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -157,7 +158,7 @@ class MyApp extends StatelessWidget {
                     if (snapshot.hasData && snapshot.data!) {
                       return const HomePage();
                     } else {
-                      return const SignUpScreen();
+                      return const LoginScreen();
                     }
                 }
               },
