@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:barkmeow/Golbal_Widgets/camera_action_btn.dart';
 import 'package:barkmeow/Contact_Us/views/contact_us_page.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:barkmeow/Golbal_Widgets/gallary_action_button.dart';
 import 'package:barkmeow/Help_Center/views/pages.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
@@ -217,9 +218,9 @@ class ProfilePage extends StatelessWidget {
                               ),
                             )
                           : snapshot.data?.get('profilePicture') != null
-                              ? NetworkImage(
-                                  snapshot.data?.get('profilePicture')
-                                      as String,
+                              ? CachedNetworkImageProvider(
+                                  snapshot.data?.get('profilePicture').url(),
+
                                 )
                               : const AssetImage(
                                   'assets/images/profile_page/profile.png',

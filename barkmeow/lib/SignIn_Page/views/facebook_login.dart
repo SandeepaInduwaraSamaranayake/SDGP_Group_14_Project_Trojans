@@ -62,7 +62,7 @@ class FacebookLoginHelper {
               onPressed: () async {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(builder: (context) =>  HomePage()),
                   (Route<dynamic> route) => false,
                 );
               });

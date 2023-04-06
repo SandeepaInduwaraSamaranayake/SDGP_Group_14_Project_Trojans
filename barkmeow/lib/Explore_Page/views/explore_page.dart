@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../Bottom_Nav_Bar/nav_bar.dart';
+import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});

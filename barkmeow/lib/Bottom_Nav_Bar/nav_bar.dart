@@ -1,9 +1,7 @@
 import 'package:barkmeow/Home_Page/views/home_page.dart';
 import 'package:barkmeow/Breed_Identifier/views/controller.dart';
 import 'package:barkmeow/Profile_Page/views/pages.dart';
-import 'package:barkmeow/SignUpPage/views/pages.dart';
 import 'package:flutter/material.dart';
-import 'package:barkmeow/Help_Center/views/pages.dart';
 import 'package:barkmeow/app_styles.dart';
 import 'package:barkmeow/Explore_Page/views/explore_page.dart';
 import 'package:barkmeow/Notification_Page/views/notification_page.dart';
@@ -37,7 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomePage(),
+              builder: (context) =>  HomePage(),
             ),
           );
         } else if (index == 1) {

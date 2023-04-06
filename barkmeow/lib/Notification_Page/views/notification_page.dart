@@ -38,7 +38,7 @@ class NotificationPage extends StatelessWidget {
                   height: 30.0,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/mail_icon.png'),
+                      image: AssetImage('assets/images/notification_page/notification.png'),
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -62,7 +62,7 @@ class NotificationPage extends StatelessWidget {
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                            image: AssetImage('assets/notification_image.png'),
+                            image: AssetImage('assets/images/notification_page/notification.png'),
                             fit: BoxFit.cover,
                           ),
                         ),

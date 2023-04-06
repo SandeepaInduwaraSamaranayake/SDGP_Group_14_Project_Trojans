@@ -196,7 +196,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const HomePage(),
+                      builder: (_) =>  HomePage(),
                     ),
                   );
                 } else {

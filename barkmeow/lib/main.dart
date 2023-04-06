@@ -1,7 +1,7 @@
 import 'package:barkmeow/AppConfiguration/app_config.dart';
 import 'package:barkmeow/AppConfiguration/server_status.dart';
 import 'package:barkmeow/Home_Page/views/home_page.dart';
-import 'package:barkmeow/SignUpPage/views/pages.dart';
+import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,12 +9,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:barkmeow/Onboarding_screens/views/pages.dart';
-import 'package:barkmeow/Profile_Page/views/profile_page.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-
-import 'Contact_Us/views/contact_us_page.dart';
-import 'Help_Center/views/help_center.dart';
-import 'SignIn_Page/views/login_screen.dart';
 
 // To hold boolean value whether the user have seen the onboard screens or not.
 bool? seenOnboard;
@@ -159,9 +154,9 @@ class MyApp extends StatelessWidget {
                     );
                   default:
                     if (snapshot.hasData && snapshot.data!) {
-                      return const HomePage();
+                      return HomePage();
                     } else {
-                      return const HomePage();
+                      return const LoginOrSignupPage();
                     }
                 }
               },

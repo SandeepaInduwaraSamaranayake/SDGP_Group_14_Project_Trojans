@@ -21,7 +21,7 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
   late File _image; // to hold the image user select.
   late List _results; // to hold the output of CNN Model.
   late List _percentages = []; // to hold the percentages only.
-  late List _labels = []; // to hold the labels only
+  late List _labels = []; // to hold the labels only.
   late List _percentLabels = []; // to hold label and the percentage.
   final List _colors = const [
     // hold colors for circular percentage indicator.
@@ -46,8 +46,8 @@ class _BreedIdentifierState extends State<BreedIdentifier> {
     Tflite.close();
     String res;
     res = (await Tflite.loadModel(
-        model: "assets/ml_model/mymodel.tflite",
-        labels: "assets/ml_model/mylabels.txt"))!;
+        model: "assets/ml_model/model.tflite",
+        labels: "assets/ml_model/labels.txt"))!;
     print("Models loading status: $res");
   }
 
