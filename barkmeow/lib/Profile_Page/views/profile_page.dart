@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
     //double sizeH = SizeConfig.blockSizeH!;
     double sizeV = SizeConfig.blockSizeV!;
     // current index for nav bar
-    int currentIndex = 0;
+    int currentIndex = 4;
 
     // set image to as the user profile image
     Future<void> uploadProfileImage() async {
@@ -174,7 +174,6 @@ class ProfilePage extends StatelessWidget {
       );
     }
 
-
     return Scaffold(
       backgroundColor: Colors.white,
       //Navigator Bar
@@ -217,8 +216,9 @@ class ProfilePage extends StatelessWidget {
                               ),
                             )
                           : snapshot.data?.get('profilePicture') != null
-                                ? NetworkImage(
-                                   snapshot.data?.get('profilePicture') as String,
+                              ? NetworkImage(
+                                  snapshot.data?.get('profilePicture')
+                                      as String,
                                 )
                               : const AssetImage(
                                   'assets/images/profile_page/profile.png',

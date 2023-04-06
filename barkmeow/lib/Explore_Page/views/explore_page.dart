@@ -21,13 +21,13 @@ class _ExplorePageState extends State<ExplorePage> {
   ];
 
   final List<String> _images = [
-    'https://picsum.photos/id/1015/300/300',
-    'https://picsum.photos/id/1016/300/300',
-    'https://picsum.photos/id/1018/300/300',
-    'https://picsum.photos/id/1021/300/300',
-    'https://picsum.photos/id/1022/300/300',
-    'https://picsum.photos/id/1025/300/300',
-    'https://picsum.photos/id/1026/300/300',
+    'https://picsum.photos/id/237/200/300',
+    'https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80/300/300',
+    'https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60/300/300',
+    'https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80/300/300',
+    'https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80/300/300',
+    'https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=438&q=80/300/300',
+    'https://images.unsplash.com/photo-1605568427561-40dd23c2acea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80/300/300',
   ];
 
   @override
