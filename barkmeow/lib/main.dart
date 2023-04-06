@@ -30,7 +30,7 @@ bool? seenOnboard;
 // - Dest. Port - your local computer parse server running port(normally 1337).
 // - Protocol - must be UDP + TCP.
 // - Comment - Description about this port forwarding rule.
-String runningMode = 'local';
+String runningMode = 'remote';
 
 // To hold the configuration of the application.
 // ? indicates that config variable is nullable(can be null).
@@ -161,7 +161,7 @@ class MyApp extends StatelessWidget {
                     if (snapshot.hasData && snapshot.data!) {
                       return const HomePage();
                     } else {
-                      return const ContactUsPage();
+                      return const HomePage();
                     }
                 }
               },

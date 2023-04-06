@@ -1,53 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 
+import '../../Bottom_Nav_Bar/nav_bar.dart';
 
-class NotificationPage extends StatefulWidget {
+class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
-
-  @override
-  _NotificationPageState createState() => _NotificationPageState();
-}
-
-class _NotificationPageState extends State<NotificationPage> {
-  List<String> notifications = [    "Notification 1",    "Notification 2",    "Notification 3",    "Notification 4",    "Notification 5",  ];
 
   @override
   Widget build(BuildContext context) {
     int currentIndex = 3;
     return Scaffold(
-      backgroundColor: Colors.white,
-      //Navigator Bar
       bottomNavigationBar: BottomNavigation(
         currentIndex: currentIndex,
       ),
       appBar: AppBar(
-        title: const Text("Notifications"),
+        title: const Text('Notifications'),
       ),
-      body: ListView.builder(
-        itemCount: notifications.length,
-        itemBuilder: (context, index) {
-          return Card(
-            elevation: 2.0,
-            margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-            child: ListTile(
-              contentPadding:
-              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              title: Text(
-                notifications[index],
-                style: const TextStyle(fontSize: 18.0),
-              ),
-              trailing: IconButton(
-                icon: const Icon(Icons.delete),
-                onPressed: () {
-                  setState(() {
-                    notifications.removeAt(index);
-                  });
-                },
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: const Text(
+              'New Notifications',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24.0,
               ),
             ),
-          );
-        },
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  width: 30.0,
+                  height: 30.0,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/mail_icon.png'),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount:
+                  5, // Change this number to the number of notifications you want to display
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 60.0,
+                        height: 60.0,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage('assets/notification_image.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16.0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              '@sanddepa2001 commented on your',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            SizedBox(height: 8.0),
+                            Text(
+                              'You have 3+ suggest veterinarian',
+                              style: TextStyle(fontSize: 14.0),
+                            ),
+                            SizedBox(height: 8.0),
+                            Text(
+                              '5 hour ago',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
