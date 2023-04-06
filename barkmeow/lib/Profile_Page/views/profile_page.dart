@@ -17,6 +17,7 @@ import 'package:barkmeow/Profile_Page/widgets/log_out_widget.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import '../../About_us_page/about_us.dart';
 
 // Profile page
 // ignore: must_be_immutable
@@ -309,7 +310,7 @@ class ProfilePage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ContactUsPage(),
+                                builder: (context) => const AboutUsPage(),
                               ),
                             );
                           },
