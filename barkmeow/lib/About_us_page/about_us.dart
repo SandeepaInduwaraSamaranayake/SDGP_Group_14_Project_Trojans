@@ -38,7 +38,6 @@ class AboutUsPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16),
             ),
-
             const SizedBox(height: 30),
             Card(
               child: Padding(
@@ -47,16 +46,17 @@ class AboutUsPage extends StatelessWidget {
                   children: [
                     const Text(
                       'Developed by',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const Text(
                       'Team Trojans SE-14',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 20),
                     ),
-
                     const Text(
                       'Contact Us',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 16),
                     const Text(
@@ -68,21 +68,24 @@ class AboutUsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         IconButton(
-                          icon: Image.asset('assets/images/About_Us/facebook.png'),
+                          icon: Image.asset(
+                              'assets/images/About_Us/facebook.png'),
                           onPressed: () async {
                             const url = 'https://www.facebook.com';
                             await launch(url);
                           },
                         ),
                         IconButton(
-                          icon: Image.asset('assets/images/About_Us/instagram.jpg'),
+                          icon: Image.asset(
+                              'assets/images/About_Us/instagram.jpg'),
                           onPressed: () async {
                             const url = 'https://www.instagram.com';
                             await launch(url);
                           },
                         ),
                         IconButton(
-                          icon: Image.asset('assets/images/About_Us/twitter.png'),
+                          icon:
+                              Image.asset('assets/images/About_Us/twitter.png'),
                           onPressed: () async {
                             const url = 'https://www.twitter.com';
                             await launch(url);

@@ -315,7 +315,7 @@ class ProfilePage extends StatelessWidget {
                             );
                           },
                           child: Text(
-                            'Contact Us',
+                            'About Us',
                             style: profileBlueBody,
                           ),
                         ),

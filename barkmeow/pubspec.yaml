@@ -84,6 +84,7 @@ flutter:
     - assets/images/identifier/
     - assets/ml_model/
     - assets/images/home_page/
+    - assets/images/About_Us/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
