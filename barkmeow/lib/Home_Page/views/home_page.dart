@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           // Show the CircularProgressIndicator while page is loading
-          _isLoading ? Center(child: CircularProgressIndicator()) : Container(),
+          _isLoading ? const Center(child: CircularProgressIndicator()) : Container(),
         ],
       ),
     );

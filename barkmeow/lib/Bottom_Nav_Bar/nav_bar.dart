@@ -35,7 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>  HomePage(),
+              builder: (context) => HomePage(),
             ),
           );
         } else if (index == 1) {
@@ -76,7 +76,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.explore),
-          label: 'Explore',
+          label: 'Store',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle),
