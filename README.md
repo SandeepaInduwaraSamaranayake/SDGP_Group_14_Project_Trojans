@@ -64,8 +64,40 @@ Pets play a significant role in a person's life. Pets can be an important and va
 > 3. Matplotlib - Visualise and analyse the results of the deep learning model.
 > 4. NumPy - Numerical Computing.
 > 5. Scikit-learn - For machine learning tasks
+> 6. Tensorflow hub - an open repository and library for reusable machine learning. 
+> 7. Tqdm - to get the progreesbar while model is training.
+> 8. Torchvision - Torchvision is a library for Computer Vision that goes hand in hand with PyTorch. It has utilities for efficient Image and Video transformations,  some commonly used pre-trained models, and some datasets.
+> 9. Keras - Keras is a high-level, deep learning API developed by Google for implementing neural networks. It is written in Python and is used to make the implementation of neural networks easy.
+> 10.ipynb - to access other jupyter notebooks.
 
+### Dataset Details
 
+#### For this project, the public [https://www.kaggle.com/datasets/dharminshah/dogbreed] dataset was used.
 
+> This dataset contaions 133 different dog breed classes.
 
+### Parse server Configuration
+
+#### You can use either a local Parse server or a back4app remote Parse serever.
+
+> To use a remote Parse server user sign up with [https://www.back4app.com/] using your Google or GitHub account.
+> Back4app get started page will provide you the documentation to how to work with Parse sever. 
+> Use [https://www.back4app.com/docs/get-started/welcome] link to access the Parse serever documentation.
+
+#### If you want to set up a local parse server, 
+
+> 1. You should download the latest Parse server SDK and set up the environments.
+> 2. Parse server basically a NodeJS backend application. So you need to install NodeJs and some other packages.
+> 3. To setup a local Parse server follow [https://www.back4app.com/docs/local-development/parse-server-local] Guide.
+
+### Setup Flutter environment.
+
+#### To install and setup Flutter for Windows, follow [https://docs.flutter.dev/get-started/install/windows] Guide.
+#### To install and setup Flutter for macOs, follow [https://docs.flutter.dev/get-started/install/macos] Guide.
+#### To install and setup Flutter for Linux, follow [https://docs.flutter.dev/get-started/install/linux] Guide.
+
+#### After installing Flutter make sure you are correctly setup the Flutter environment with inserting 'flutter doctor -v' command to a  Terminal.
+
+#### If everything works fine, You need to open the Flutter project called 'barkMeow' and get the packages using 'flutter pub get'.
+#### This will download all the dependencies of the project and make ready to use them.
 
