@@ -98,24 +98,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 Center(
                   child: Column(
                     children: [
-                      SignInButton(
-                        Buttons.Google,
-                        text: "LogIn with Google",
-                        onPressed: () {
-                          try {
-                            GoogleSignInHelper.doSignInSignInGoogle(context);
-                          } on PlatformException catch (e) {
-                            if (kDebugMode) {
-                              print('Platform exception occurred: $e');
-                            }
-                          } catch (e) {
-                            Message.showError(
-                              context: context,
-                              message: "Error Occurred",
-                            );
+                      SignInButton(Buttons.Google, text: "LogIn with Google",
+                          onPressed: () {
+                        try {
+                          GoogleSignInHelper.doSignInSignInGoogle(context);
+                        } on PlatformException catch (e) {
+                          if (kDebugMode) {
+                            print('Platform exception occurred: $e');
                           }
+                        } catch (e) {
+                          Message.showError(
+                            context: context,
+                            message: "Error Occurred",
+                          );
                         }
-                      ),
+                      }),
                       const SizedBox(
                         height: 10,
                       ),
@@ -198,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) =>  HomePage(),
+                  builder: (_) => HomePage(),
                 ),
               );
             },

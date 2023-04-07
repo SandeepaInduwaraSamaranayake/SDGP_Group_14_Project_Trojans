@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../Bottom_Nav_Bar/nav_bar.dart';
+import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
@@ -38,7 +37,8 @@ class NotificationPage extends StatelessWidget {
                   height: 30.0,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/notification_page/notification.png'),
+                      image: AssetImage(
+                          'assets/images/notification_page/notification.png'),
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -49,7 +49,7 @@ class NotificationPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount:
-                  5, // Change this number to the number of notifications you want to display
+                  2, // Change this number to the number of notifications you want to display
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   padding: const EdgeInsets.all(16.0),
@@ -62,7 +62,8 @@ class NotificationPage extends StatelessWidget {
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                            image: AssetImage('assets/images/notification_page/notification.png'),
+                            image: AssetImage(
+                                'assets/images/notification_page/notification.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -73,7 +74,7 @@ class NotificationPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             Text(
-                              '@sanddepa2001 commented on your',
+                              'Your Email not verified yet. Head to your inbox to be verified',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.0,
@@ -81,12 +82,12 @@ class NotificationPage extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              'You have 3+ suggest veterinarian',
+                              'User verification',
                               style: TextStyle(fontSize: 14.0),
                             ),
                             SizedBox(height: 8.0),
                             Text(
-                              '5 hour ago',
+                              ' 2 days ago',
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12.0,

@@ -10,7 +10,8 @@ class GoogleSignInHelper {
     late ParseResponse parseResponse;
     try {
       // Check if the user is logged in.
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signInSilently();
+      final GoogleSignInAccount? googleUser =
+          await GoogleSignIn().signInSilently();
       if (googleUser != null) {
         // Logout
         await GoogleSignIn().signOut();
@@ -26,7 +27,8 @@ class GoogleSignInHelper {
       }
 
       // Get the Google sign-in authentication tokens
-      final GoogleSignInAuthentication googleAuth = await account.authentication;
+      final GoogleSignInAuthentication googleAuth =
+          await account.authentication;
 
       // Make sign-in request with Google
       parseResponse = await ParseUser.loginWith(
@@ -66,8 +68,8 @@ class GoogleSignInHelper {
             onPressed: () async {
               Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) =>  HomePage()),
-                    (Route<dynamic> route) => false,
+                MaterialPageRoute(builder: (context) => HomePage()),
+                (Route<dynamic> route) => false,
               );
             },
           );

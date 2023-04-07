@@ -185,6 +185,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               String? validationResponse = validatePassword(password);
               if (validationResponse == null) {
                 final user = ParseUser.createUser(username, password, email);
+                user.set<String>('firstName', 'Set Your First Name');
+                user.set<String>('lastName', 'Set Your Last Name');
                 var response = await user.signUp();
                 if (response.success) {
                   // ignore: use_build_context_synchronously

@@ -44,9 +44,41 @@ class FacebookLoginHelper {
           parseUser.emailAddress = userData['email'];
         }
 
-        if (userData.containsKey('name')) {
-          parseUser.set<String>('name', userData['name']);
+        // when passing name to the database, seperate first name and last name
+        // and upload as seperate two fields.
+        // if user facebook name has more than two words get the first
+        // and last names only.
+        List<String> splitName(String name) {
+          List<String> nameList = name.split(' ');
+          if (nameList.length >= 2) {
+            return [
+              nameList[0],
+              nameList[nameList.length - 1],
+            ];
+          } else if (nameList.length == 1) {
+            return [
+              nameList[0],
+              'Set Your Last Name',
+            ];
+          } else {
+            return [
+              'Set Your First Name',
+              'Set Your Last Name',
+            ];
+          }
         }
+
+        // updating remote first name
+        if (userData.containsKey('name')) {
+          // seperating name into first and last name.
+          String firstName = splitName(userData['name'])[0];
+          String lasttName = splitName(userData['name'])[1];
+          // setting first Name and lastName.
+          parseUser.set<String>('firstName', firstName);
+          parseUser.set<String>('lastName', lasttName);
+        }
+
+        // setting facebook picture as the profile picture.
         if (userData["picture"]["data"]["url"] != null) {
           parseUser.set<String>('photoURL', userData["picture"]["data"]["url"]);
         }
@@ -62,7 +94,7 @@ class FacebookLoginHelper {
               onPressed: () async {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) =>  HomePage()),
+                  MaterialPageRoute(builder: (context) => HomePage()),
                   (Route<dynamic> route) => false,
                 );
               });

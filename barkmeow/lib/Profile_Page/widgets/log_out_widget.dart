@@ -19,15 +19,6 @@ class LogOutWidget extends StatelessWidget {
         Message.showSuccess(
           context: context,
           message: 'User was successfully logout!',
-          onPressed: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const LoginOrSignupPage(),
-              ),
-              (Route<dynamic> route) => false,
-            );
-          },
         );
       } else {
         // ignore: use_build_context_synchronously
@@ -44,6 +35,12 @@ class LogOutWidget extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 doUserLogout();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginOrSignupPage(),
+                  ),
+                );
               },
               icon: const Icon(Icons.add_to_home_screen),
               color: Colors.cyan,
@@ -52,6 +49,12 @@ class LogOutWidget extends StatelessWidget {
           InkWell(
             onTap: () {
               doUserLogout();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginOrSignupPage(),
+                ),
+              );
             },
             child: const Padding(
               padding: EdgeInsets.only(right: 28.0),

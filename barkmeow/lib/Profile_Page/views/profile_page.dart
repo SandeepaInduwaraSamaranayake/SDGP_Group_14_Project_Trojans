@@ -1,13 +1,8 @@
 import 'dart:io';
 import 'package:barkmeow/Golbal_Widgets/camera_action_btn.dart';
-import 'package:barkmeow/Contact_Us/views/contact_us_page.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:barkmeow/Golbal_Widgets/gallary_action_button.dart';
+import 'package:barkmeow/Golbal_Widgets/get_input.dart';
 import 'package:barkmeow/Help_Center/views/pages.dart';
-import 'package:barkmeow/Home_Page/views/home_page.dart';
-import 'package:barkmeow/Golbal_Widgets/message.dart';
-import 'package:barkmeow/SignIn_Page/views/facebook_login.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:barkmeow/size_configs.dart';
 import 'package:barkmeow/app_styles.dart';
@@ -15,41 +10,99 @@ import 'package:barkmeow/Bottom_Nav_Bar/nav_bar.dart';
 import 'package:barkmeow/Profile_Page/widgets/card_view_double_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/card_view_single_label.dart';
 import 'package:barkmeow/Profile_Page/widgets/log_out_widget.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import '../../About_us_page/about_us.dart';
+import 'package:barkmeow/About_us_page/about_us.dart';
+
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
 
 // Profile page
 // ignore: must_be_immutable
-class ProfilePage extends StatelessWidget {
+class _ProfilePageState extends State<ProfilePage> with ChangeNotifier {
   late File profilePicture;
+  String firstName = '';
+  late String lastName = '';
   final ImagePicker _picker =
       ImagePicker(); // to hold the image picker() object.
+
+  late ImageProvider<Object> profileImage;
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserProfileImage();
+    _getUserNames();
+  }
+
+  // this method will set the profile image
+  void _getUserProfileImage() {
+    getUser().then(
+      (user) {
+        if (user != null) {
+          // set profile picture
+          if (user.get('profilePicture') is ParseFile) {
+            profileImage = NetworkImage(
+              (user.get('profilePicture') as ParseFile).url!,
+            );
+          } else {
+            if (user.get('photoURL') != null) {
+              profileImage = NetworkImage(user.get('photoURL'));
+            } else {
+              profileImage =
+                  const AssetImage('assets/images/profile_page/profile.png');
+            }
+          }
+        }
+      },
+    );
+  }
+
+  // this method will set the user name.
+  void _getUserNames() {
+    getUser().then(
+      (user) {
+        if (user != null) {
+          // set first and last name
+          firstName = user.get('firstName');
+          lastName = user.get('lastName');
+        }
+      },
+    );
+  }
+
+  // this method will set the first name in the cloud database
+  void _setFirstName() {
+    getUser().then(
+      (user) {
+        if (user != null) {
+          // set first and last name
+          user.set('firstName', firstName);
+          user.save();
+        }
+      },
+    );
+  }
+
+  // this method will set the last name in the cloud database
+  void _setLastName() {
+    getUser().then(
+      (user) {
+        if (user != null) {
+          // set last name
+          user.set('lastName', lastName);
+          user.save();
+        }
+      },
+    );
+  }
 
   // get the current user from parseUser.
   Future<ParseUser?> getUser() async {
     return await ParseUser.currentUser() as ParseUser?;
   }
-
-  // if user facebook name has more than two words get the first
-  // and last names only.
-  List<String> splitName(String name) {
-    List<String> nameList = name.split(' ');
-    if (nameList.length > 2) {
-      return [
-        nameList[0],
-        nameList[nameList.length - 1],
-      ];
-    } else {
-      return [
-        nameList[0],
-        nameList[1],
-      ];
-    }
-  }
-
-  ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +121,7 @@ class ProfilePage extends StatelessWidget {
         final parseFile =
             ParseFile(profilePicture, name: 'profile_picture.jpg');
         try {
+          // upload user selected profile picture to server.
           await parseFile.save();
           currentUser.set('profilePicture', parseFile);
           await currentUser.save();
@@ -77,6 +131,10 @@ class ProfilePage extends StatelessWidget {
               content: Text('Profile picture uploaded successfully.'),
             ),
           );
+          // set user selected profile to user profile page.
+          setState(() {
+            profileImage = FileImage(profilePicture);
+          });
         } on ParseError catch (error) {
           // ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
@@ -211,20 +269,18 @@ class ProfilePage extends StatelessWidget {
                       radius: 45.0,
                       // load networkImage to the interface. if network image is not available.
                       // fallback to an AssetImage.
-                      backgroundImage: snapshot.data?.get('photoURL') != null
-                          ? NetworkImage(
-                              snapshot.data!.get(
-                                'photoURL',
-                              ),
-                            )
-                          : snapshot.data?.get('profilePicture') != null
-                              ? CachedNetworkImageProvider(
-                                  snapshot.data?.get('profilePicture').url(),
-
+                      backgroundImage: (snapshot.data?.get('profilePicture')
+                              is ParseFile)
+                          ? NetworkImage((snapshot.data?.get('profilePicture')
+                                  as ParseFile)
+                              .url!)
+                          : (snapshot.data?.get('photoURL') != null)
+                              ? NetworkImage(
+                                  snapshot.data?.get('photoURL'),
                                 )
                               : const AssetImage(
-                                  'assets/images/profile_page/profile.png',
-                                ) as ImageProvider<Object>,
+                                      'assets/images/profile_page/profile.png')
+                                  as ImageProvider<Object>,
                     ),
                     SizedBox(
                       height: sizeV * 2,
@@ -244,14 +300,41 @@ class ProfilePage extends StatelessWidget {
                       height: sizeV * 2,
                     ),
                     // load name of the user. if name is not defined, fallback to 'Not set yet'.
-                    CardViewSingleLabel(
-                        cardName: snapshot.data!.get('name') != null
-                            ? splitName(snapshot.data!.get('name'))[0]
-                            : "Not set yet"),
-                    CardViewSingleLabel(
-                        cardName: snapshot.data!.get('name') != null
-                            ? splitName(snapshot.data!.get('name'))[1]
-                            : "Not set yet"),
+                    GestureDetector(
+                      onTap: () async {
+                        String enteredFirstName =
+                            await DialogHelper.showInputDialog(
+                                context, "Enter Your First Name");
+                        // set user selected profile to user profile page.
+                        setState(() {
+                          firstName =
+                              enteredFirstName; // update the local firstname.
+                          _setFirstName(); // update the remote firstname.
+                        });
+                      },
+                      child: CardViewSingleLabel(
+                          cardName: snapshot.data?.get('firstName') != null
+                              ? firstName
+                              : "Set Your First Name"),
+                    ),
+
+                    GestureDetector(
+                      onTap: () async {
+                        String enteredLastName =
+                            await DialogHelper.showInputDialog(
+                                context, "Enter Your Last Name");
+                        // set user selected profile to user profile page.
+                        setState(() {
+                          lastName =
+                              enteredLastName; // update the local firstname.
+                          _setLastName(); // update the remote firstname.
+                        });
+                      },
+                      child: CardViewSingleLabel(
+                          cardName: snapshot.data?.get('lastName') != null
+                              ? lastName
+                              : "Set Your Last Name"),
+                    ),
                     const SizedBox(
                       height: 20, //20
                     ),
@@ -264,11 +347,13 @@ class ProfilePage extends StatelessWidget {
                     ),
                     CardViewDoubleLabel(
                       title: 'Email',
-                      value: snapshot.data!.emailAddress.toString(),
+                      value: snapshot.data?.emailAddress.toString() ??
+                          'Not set yet',
                     ),
                     CardViewDoubleLabel(
                       title: 'Username',
-                      value: snapshot.data!.username.toString(),
+                      value:
+                          snapshot.data?.username.toString() ?? 'Not set yet',
                     ),
                     SizedBox(
                       height: sizeV * 2,

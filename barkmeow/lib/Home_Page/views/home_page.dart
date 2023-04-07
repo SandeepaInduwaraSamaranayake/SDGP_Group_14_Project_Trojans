@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         currentIndex: currentIndex,
       ),
       appBar: AppBar(
-        title: const Text('Let\'s Give it a Ride'),
+        title: const Text('Share What you Love'),
       ),
       body: Stack(
         children: <Widget>[
