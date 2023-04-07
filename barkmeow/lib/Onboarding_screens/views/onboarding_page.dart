@@ -1,9 +1,9 @@
 import 'package:barkmeow/Onboarding_screens/model/onboard_data.dart';
-import 'package:barkmeow/Onboarding_screens/size_configs.dart';
+import 'package:barkmeow/SignupOrLogin/signup_or_login.dart';
 import 'package:barkmeow/main.dart';
+import 'package:barkmeow/size_configs.dart';
 import 'package:flutter/material.dart';
-import 'package:barkmeow/Onboarding_screens/app_styles.dart';
-import 'package:barkmeow/Sign_Up_Page/views/pages.dart';
+import 'package:barkmeow/app_styles.dart';
 import 'package:barkmeow/Onboarding_screens/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,7 +38,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     // getting an instance of SharedPreferences class.
     SharedPreferences pref = await SharedPreferences.getInstance();
     // setting seenOnboard variable to true after showing the onboard screens.
-    //seenOnboard = await pref.setBool('seenOnboard', true);
+    seenOnboard = await pref.setBool('seenOnboard', true);
   }
 
 // This will call the setSeenOnboard() method when running onboard pages for the
@@ -150,7 +150,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const SignUpPage(),
+                                      builder: (context) =>
+                                          const LoginOrSignupPage(),
                                     ),
                                   );
                                 },
@@ -175,7 +176,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const SignUpPage()));
+                                              const LoginOrSignupPage()));
                                 },
                               ),
                               // Row for dot indicators.

@@ -1,40 +1,38 @@
-import 'dart:io';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-// ignore: depend_on_referenced_packages
-import 'package:http/http.dart' as http;
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 /// This class will check the server status.
 /// If the server is running or down.
-
 class ServerStatus {
   // This method will send http GET request and check whether server is responding
   // with 200 status code which indicates 'OK'. That means server is running.
-  static Future<bool> verifyParseServer(Uri serverUri) async {
-    try {
-      //print(Uri.parse(serverUri.origin.toString()+'/health'));
-      //this will alter the initial server url to use the /health endpoint
-      //(as an example http://127.0.0.1:1337/parse URI will be altered to
-      //http://127.0.0.1:1337/health).
-      var response = await http.get(Uri.parse('${serverUri.origin}/health'));
-      //this will print the statuscode of the respond of server.
-      //print(response.statusCode);
-      // if server responce is ok return true, otherwise return false.
-      if (response.statusCode == HttpStatus.ok) {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
-      //print(e);
-      return false;
+  static Future<void> verifyParseServer() async {
+    final apiResponse = await Parse().healthCheck();
+    if (apiResponse.success) {
+      print('Server is up and running!');
+    } else {
+      print('Server is down!');
     }
   }
 
   // this method will send a sample object to the parse server.
-  static Future<void> sendSampleObjectToServer() async {
-    var firstObject = ParseObject('Sandeepaff1')
-      ..set('message', 'Hi brothers. Parse is now connected');
-    await firstObject.save();
-    //print('Done');
-  }
+  // static Future<void> sendSampleObjectToServer() async {
+  //   var firstObject = ParseObject('User')
+  //     ..set('message', 'sandeepa')
+  //     ..set('password', 'hello')
+  //     ..set('emailVerified', false);
+
+  //   await firstObject.save();
+  //   try {
+  //    final ParseResponse parseResponse = await firstObject.save();
+
+  //    if(parseResponse.success)
+  //    {
+  //     var objectId = (parseResponse.results!.first as ParseObject).objectId!;
+  //     print('Object created: $objectId');
+  //    }
+  //     print('Sample object sent to Parse Server!');
+  //   } catch (e) {
+  //     print('Error sending sample object to Parse Server: $e');
+  //   }
+  // }
 }

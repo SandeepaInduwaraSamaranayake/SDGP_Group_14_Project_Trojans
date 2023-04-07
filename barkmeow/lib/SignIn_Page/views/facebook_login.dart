@@ -1,0 +1,116 @@
+import 'package:barkmeow/Home_Page/views/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import 'package:barkmeow/Golbal_Widgets/message.dart';
+
+class FacebookLoginHelper {
+  static void doSignInSignUpFacebook(BuildContext context) async {
+    late ParseResponse parseResponse;
+    try {
+      //Check if the user is logged.
+      final AccessToken? currentAccessToken =
+          await FacebookAuth.instance.accessToken;
+      if (currentAccessToken != null) {
+        //Logout
+        await FacebookAuth.instance.logOut();
+      }
+
+      //Make a Login request
+      final LoginResult result = await FacebookAuth.instance.login();
+
+      if (result.status != LoginStatus.success) {
+        // ignore: use_build_context_synchronously
+        Message.showError(context: context, message: result.message!);
+        return;
+      }
+
+      final AccessToken accessToken = result.accessToken!;
+
+      //Make sign in with Facebook
+      parseResponse = await ParseUser.loginWith(
+          'facebook',
+          facebook(accessToken.token.toString(), accessToken.userId,
+              accessToken.expires));
+
+      if (parseResponse.success) {
+        final ParseUser parseUser = await ParseUser.currentUser() as ParseUser;
+
+        //Get user data from Facebook
+        final userData = await FacebookAuth.instance.getUserData();
+
+        //Additional Information in User
+        if (userData.containsKey('email')) {
+          parseUser.emailAddress = userData['email'];
+        }
+
+        // when passing name to the database, seperate first name and last name
+        // and upload as seperate two fields.
+        // if user facebook name has more than two words get the first
+        // and last names only.
+        List<String> splitName(String name) {
+          List<String> nameList = name.split(' ');
+          if (nameList.length >= 2) {
+            return [
+              nameList[0],
+              nameList[nameList.length - 1],
+            ];
+          } else if (nameList.length == 1) {
+            return [
+              nameList[0],
+              'Set Your Last Name',
+            ];
+          } else {
+            return [
+              'Set Your First Name',
+              'Set Your Last Name',
+            ];
+          }
+        }
+
+        // updating remote first name
+        if (userData.containsKey('name')) {
+          // seperating name into first and last name.
+          String firstName = splitName(userData['name'])[0];
+          String lasttName = splitName(userData['name'])[1];
+          // setting first Name and lastName.
+          parseUser.set<String>('firstName', firstName);
+          parseUser.set<String>('lastName', lasttName);
+        }
+
+        // setting facebook picture as the profile picture.
+        if (userData["picture"]["data"]["url"] != null) {
+          parseUser.set<String>('photoURL', userData["picture"]["data"]["url"]);
+        }
+
+        await FacebookAuth.instance.logOut();
+        parseResponse = await parseUser.save();
+
+        if (parseResponse.success) {
+          // ignore: use_build_context_synchronously
+          Message.showSuccess(
+              context: context,
+              message: 'User was successfully with Sign In Facebook!',
+              onPressed: () async {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                  (Route<dynamic> route) => false,
+                );
+              });
+        } else {
+          // ignore: use_build_context_synchronously
+          Message.showError(
+              context: context, message: parseResponse.error!.message);
+        }
+      } else {
+        // ignore: use_build_context_synchronously
+        Message.showError(
+            context: context, message: parseResponse.error!.message);
+      }
+    } on Exception catch (e) {
+      print(e.toString());
+      Message.showError(context: context, message: e.toString());
+    }
+  }
+}
