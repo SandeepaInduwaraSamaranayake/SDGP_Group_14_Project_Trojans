@@ -105,77 +105,77 @@ Pets play a significant role in a person's life. Pets can be an important and va
 
 ### Splash Screen
 
-<img src="https://user-images.githubusercontent.com/95087710/236792418-e866aa46-fd96-48e1-bce5-a45c85fa803d.jpg" style="display: inline-block; width: 33%;"/>
+<img src="https://user-images.githubusercontent.com/95087710/236792418-e866aa46-fd96-48e1-bce5-a45c85fa803d.jpg" style="display: inline-block; width: 30%;"/>
 
 ### Onboarding Screens
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/95087710/236794866-473a83b6-3b64-4c36-9e94-f2ab700c7b87.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236795001-4431030c-ec3a-46e7-8dd0-96fb3ae9df5d.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236817502-8aa6a06d-adc9-4f5c-bcb0-a59cbb04f659.jpg" style="display: inline-block; width: 33%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236794866-473a83b6-3b64-4c36-9e94-f2ab700c7b87.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236795001-4431030c-ec3a-46e7-8dd0-96fb3ae9df5d.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236817502-8aa6a06d-adc9-4f5c-bcb0-a59cbb04f659.jpg" style="display: inline-block; width: 30%;" />
 </div>
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/95087710/236817740-e97f68d7-c60b-4dcd-8c67-618419a5502a.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236817763-0eb238e4-5deb-4c14-a27f-20bc4912a34d.jpg" style="display: inline-block; width: 33%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236817740-e97f68d7-c60b-4dcd-8c67-618419a5502a.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236817763-0eb238e4-5deb-4c14-a27f-20bc4912a34d.jpg" style="display: inline-block; width: 30%;" />
 </div>
 
 ### Choose Sign-In or Sign-Up
 
-<img src="https://user-images.githubusercontent.com/95087710/236818552-227fd21a-477b-4f7d-a100-91cdc5d97fb8.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236818552-227fd21a-477b-4f7d-a100-91cdc5d97fb8.jpg" style="display: inline-block; width: 30%;" />
 
 ### Sign-Up Page
 
-<img src="https://user-images.githubusercontent.com/95087710/236820483-f1102701-0e82-415a-b594-a16dd550e58c.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236820483-f1102701-0e82-415a-b594-a16dd550e58c.jpg" style="display: inline-block; width: 30%;" />
 
 ### Sign-In page
 
-<img src="https://user-images.githubusercontent.com/95087710/236820672-209b0a43-d6b2-4e80-aa50-71dfd5e4279a.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236820672-209b0a43-d6b2-4e80-aa50-71dfd5e4279a.jpg" style="display: inline-block; width: 30%;" />
 
 ### Home Page
 
-<img src="https://user-images.githubusercontent.com/95087710/236820848-220b6986-42df-4481-85d9-a180c91f5552.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236820848-220b6986-42df-4481-85d9-a180c91f5552.jpg" style="display: inline-block; width: 30%;" />
 
 ### Menu
 
-<img src="https://user-images.githubusercontent.com/95087710/236821172-ed7933af-a5a4-4c17-8691-7ca232a3703f.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236821172-ed7933af-a5a4-4c17-8691-7ca232a3703f.jpg" style="display: inline-block; width: 30%;" />
 
 ### Pet Store
 
-<img src="https://user-images.githubusercontent.com/95087710/236821380-924b7a09-b1c2-4306-94df-924a123a0c8e.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236821380-924b7a09-b1c2-4306-94df-924a123a0c8e.jpg" style="display: inline-block; width: 30%;" />
 
 ### Pet Breed Prediction Screen
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/95087710/236821609-1ba56e2d-f59f-44ee-9d5d-2dcad16d11f8.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236821622-2c355641-2218-411b-b755-067884e04c85.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236821629-2d6958f3-5cdd-4d35-91cf-dd46f02482b5.jpg" style="display: inline-block; width: 33%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821609-1ba56e2d-f59f-44ee-9d5d-2dcad16d11f8.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821622-2c355641-2218-411b-b755-067884e04c85.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821629-2d6958f3-5cdd-4d35-91cf-dd46f02482b5.jpg" style="display: inline-block; width: 30%;" />
 </div>
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/95087710/236821643-3885d4a2-f99a-4c7a-adee-d19332006973.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236821656-c8d55865-c8a6-46c6-874c-7bc8098b6a81.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236821666-78e2b055-2e2c-407e-bf82-ab1876b012a1.jpg" style="display: inline-block; width: 33%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821643-3885d4a2-f99a-4c7a-adee-d19332006973.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821656-c8d55865-c8a6-46c6-874c-7bc8098b6a81.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821666-78e2b055-2e2c-407e-bf82-ab1876b012a1.jpg" style="display: inline-block; width: 30%;" />
 </div>
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/95087710/236821673-0e6d0839-c8cc-4514-8567-f1ede39dde27.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236821684-88cbf808-cb3f-4578-9436-65871bcbaafb.jpg" style="display: inline-block; width: 33%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821673-0e6d0839-c8cc-4514-8567-f1ede39dde27.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236821684-88cbf808-cb3f-4578-9436-65871bcbaafb.jpg" style="display: inline-block; width: 30%;" />
 </div>
 
 ### Notification Page
 
-<img src="https://user-images.githubusercontent.com/95087710/236823609-e405a843-b301-4711-b238-cc6b73ebe857.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236823609-e405a843-b301-4711-b238-cc6b73ebe857.jpg" style="display: inline-block; width: 30%;" />
 
 ### Profile Page
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/95087710/236824190-e6c9b402-180e-41ec-a67d-296fb4f36531.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236824203-1f82ac48-1bce-46a0-b783-d87c81ab626c.jpg" style="display: inline-block; width: 33%;" />
-  <img src="https://user-images.githubusercontent.com/95087710/236824208-1c1798e1-7b95-40db-b3a8-d7a5bb7e6428.jpg" style="display: inline-block; width: 33%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236824190-e6c9b402-180e-41ec-a67d-296fb4f36531.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236824203-1f82ac48-1bce-46a0-b783-d87c81ab626c.jpg" style="display: inline-block; width: 30%;" />
+  <img src="https://user-images.githubusercontent.com/95087710/236824208-1c1798e1-7b95-40db-b3a8-d7a5bb7e6428.jpg" style="display: inline-block; width: 30%;" />
 </div>
 
 ### About Us Page
 
-<img src="https://user-images.githubusercontent.com/95087710/236824463-76de6543-72cf-4cfd-9141-cf0fb77b8d42.jpg" style="display: inline-block; width: 33%;" />
+<img src="https://user-images.githubusercontent.com/95087710/236824463-76de6543-72cf-4cfd-9141-cf0fb77b8d42.jpg" style="display: inline-block; width: 30%;" />
 
